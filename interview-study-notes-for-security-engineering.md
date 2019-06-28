@@ -661,5 +661,5 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Practice being in the uncomfortable position where you have no idea about the topic you've been asked. Work through it from first principles.
 	- Doooo theeeeemmm yes they can be annoying to organise but it is *worth it*.
 
-###Interviewers are potential friends and they want to help you get the job, they are on your side. Let them help you, ask them questions, say everything you know on a topic and *say your thought process outloud*.
+### Interviewers are potential friends and they want to help you get the job, they are on your side. Let them help you, ask them questions, say everything you know on a topic and *say your thought process outloud*.
 
