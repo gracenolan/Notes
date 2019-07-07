@@ -187,7 +187,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Only accept requests from the same origin domain. 
  
 - CORS 
-	- Cross-origin request standard. Can specify allowed origins in HTTP headers. Sends a preflight request with options set asking if the server approves, and if the server approves, then the actual request is sent (eg. should client send auth cookies).
+	- Cross-Origin Resource Sharing. Can specify allowed origins in HTTP headers. Sends a preflight request with options set asking if the server approves, and if the server approves, then the actual request is sent (eg. should client send auth cookies).
 
 - HSTS 
 	- Policies, eg what websites use HTTPS.
@@ -464,7 +464,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 # Detection
 
 - IDS
-	- Intrusion Detection System (signature based (eg. snot) or behaviour based).
+	- Intrusion Detection System (signature based (eg. snort) or behaviour based).
 
 - SIEM
 	- System Information and Event Management.
