@@ -193,7 +193,11 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Policies, eg what websites use HTTPS.
 
 - Cert transparency 
-	- Replaces HSTS.
+	- Can verify certificates against public logs 
+	
+- HTTP Public Key Pinning
+	- (HPKP)
+	- Deprecated by Google Chrome
 
 - Cookies 
 	- httponly - cannot be accessed by javascript.
