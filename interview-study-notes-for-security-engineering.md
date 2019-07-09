@@ -234,7 +234,6 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 - Beefhook
 	- Get info about Chrome extensions.
 
-
 - User agents
 	- Is this a legitimate browser? Or a botnet?
 
@@ -535,6 +534,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - Privacy incidents vs information security incidents
 - Know when to talk to legal, users, managers, directors.
+- Run a scenario from A to Z, how would you ...
 
 - Good practices for running incidents 
 	- How to delegate.
@@ -543,6 +543,9 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- When to stop an attack.
 	- Understand risk of alerting attacker.
 	- Ways an attacker may clean up / hide their attack.
+	- When / how to inform upper management (manage expectations).
+	- Metrics to assign Priorities (e.g. what needs to happen until you increase the prio for a case)
+    - Use playbooks if available
 
 - Important things to know and understand
 	- Type of alerts, how these are triggered.
@@ -551,7 +554,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- First principles vs in depth systems knowledge (why both are good).
 	- Building timeline of events.
 	- Understand why you should assume good intent, and how to work with people rather than against them.
-
+    - Prevent future incidents with the same root cause
 
 # Coding & algorithms
 
@@ -586,7 +589,6 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Stacks.
 	- SQL/tables. 
 	- Bigtables.
-
 
 ## Security themed coding challenges
 
