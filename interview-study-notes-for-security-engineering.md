@@ -10,20 +10,20 @@ Spend more time writing small scrips and studying features of your preferred lan
 I recommend doing a lot of reading and whenever you come across a term you are unfamiliar with or couldn't easily explain, then add it to the list. 
 
 ### Contents
-- Networking
-- Web application
-- Infrastructure (Prod / Cloud) Virtualisation
-- OS implementation and systems
-- Mitigations
-- Cryptography, authentication, identity
-- Malware & Reversing
-- Exploits
-- Detection
-- Incident Management
-- Coding & algorithms
-- Security themed coding challenges
-- Learning tips
-- Interviewing tips
+- [Networking](#networking)
+- [Web application](#web-application)
+- [Infrastructure (Prod / Cloud) Virtualisation](#infrastructure-prod--cloud-virtualisation)
+- [OS implementation and systems](#os-implementation-and-systems)
+- [Mitigations](#mitigations)
+- [Cryptography, authentication, identity](#cryptography-authentication-identity)
+- [Malware & Reversing](#malware--reversing)
+- [Exploits](#exploits)
+- [Detection](#detection)
+- [Incident Management](#incident-management)
+- [Coding & algorithms](#coding--algorithms)
+- [Security themed coding challenges](#security-themed-coding-challenges)
+- [Learning tips](#learning-tips)
+- [Interviewing tips](#interviewing-tips)
 
 
 # Networking 
@@ -52,7 +52,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Doesn’t show up in http logs. 
 
 - DNS configs
-	- Start of Authority (SOA). 
+	- Start of Authority (SOA). d
 	- IP addresses (A and AAAA).
 	- SMTP mail exchangers (MX).
 	- Name servers (NS).
