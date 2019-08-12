@@ -52,7 +52,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Doesn’t show up in http logs. 
 
 - DNS configs
-	- Start of Authority (SOA). d
+	- Start of Authority (SOA).
 	- IP addresses (A and AAAA).
 	- SMTP mail exchangers (MX).
 	- Name servers (NS).
