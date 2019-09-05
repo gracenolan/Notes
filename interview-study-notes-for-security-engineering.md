@@ -658,7 +658,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - **Prepare**
 	- Prepare questions that you want to ask your interviewers so you don't need to think of them on the spot on the day. Since an interview is also for you to know more about the workplace, I asked questions about the worst part of the job. 
-	- Bring some small stacks in a box or container that isn't noisy and distracting. A little bit of sugar throughout the day can help your problem solving abilities. 
+	- Bring some small snacks in a box or container that isn't noisy and distracting. A little bit of sugar throughout the day can help your problem solving abilities. 
 	- Stay hydrated - and take a toilet break between every interview if you need to. 
 
 - **Do practice interviews**
