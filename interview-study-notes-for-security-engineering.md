@@ -103,7 +103,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - SSL/TLS
 	- (443) 
-	- Super important to learn this, includes learning about  handshakes, encryption, signing, certificate authorities, trust systems.
+	- Super important to learn this, includes learning about handshakes, encryption, signing, certificate authorities, trust systems. [A good primer on all these concepts and algorithms](https://english.ncsc.nl/publications/publications/2019/juni/01/it-security-guidelines-for-transport-layer-security-tls) is made available by the Dutch cybersecurity center.
 
 - TCP/UDP
 	- Web traffic, chat, voip, traceroute.
@@ -329,6 +329,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - Encryption vs Encoding vs Hashing vs Obfuscation vs Signing
 	- Be able to explain the differences between these things. 
+	- [(Various attack models (e.g. chosen-plaintext attack)](https://en.wikipedia.org/wiki/Attack_model).
 
 - Encryption standards + implementations
 	- [RSA (asymmetrical)](https://en.wikipedia.org/wiki/RSA_(cryptosystem)).
