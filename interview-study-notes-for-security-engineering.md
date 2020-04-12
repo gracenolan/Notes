@@ -331,10 +331,10 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Be able to explain the differences between these things. 
 
 - Encryption standards + implementations
-	- RSA (asymmetrical).
-	- AES (symmetrical).
-	- ECC (namely ed25519) (asymmetric). 
-	- Chacha/Salsa (symmetric).
+	- [RSA (asymmetrical)](https://en.wikipedia.org/wiki/RSA_(cryptosystem)).
+	- [AES (symmetrical)](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
+	- [ECC (namely ed25519) (asymmetric)](https://en.wikipedia.org/wiki/EdDSA).
+	- [Chacha/Salsa (symmetric)](https://en.wikipedia.org/wiki/Salsa20#ChaCha_variant).
 
 - Asymmetric vs symmetric
 	- Asymmetric is slow, but good for establishing a trusted connection.
@@ -342,8 +342,8 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Perfect forward secrecy - eg Signal uses this.
 
 - Cyphers
-	- Block vs stream ciphers
-	- Block cipher modes of operation
+	- [Block vs stream ciphers](https://en.wikipedia.org/wiki/Cipher).
+	- [Block cipher modes of operation](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation).
 
 - Trusted Platform Module 
 	- (TPM)
