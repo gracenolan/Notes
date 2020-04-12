@@ -329,7 +329,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - Encryption vs Encoding vs Hashing vs Obfuscation vs Signing
 	- Be able to explain the differences between these things. 
-	- [(Various attack models (e.g. chosen-plaintext attack)](https://en.wikipedia.org/wiki/Attack_model).
+	- [Various attack models (e.g. chosen-plaintext attack)](https://en.wikipedia.org/wiki/Attack_model).
 
 - Encryption standards + implementations
 	- [RSA (asymmetrical)](https://en.wikipedia.org/wiki/RSA_(cryptosystem)).
