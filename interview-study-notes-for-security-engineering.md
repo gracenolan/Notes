@@ -349,9 +349,10 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- (TPM)
 	- Trusted storage for certs and auth data locally on device/host.
 
-- Hashing functions 
-	- MD5, Sha-1), BLAKE. 
-	- Used for identifiers, very useful for fingerprinting malware samples.
+- Integrity and authenticity primitives
+	- [Hashing functions, e.g. MD5, Sha-1, BLAKE](https://en.wikipedia.org/wiki/Cryptographic_hash_function). Used for identifiers, very useful for fingerprinting malware samples.
+	- [Message Authentication Codes (MACs)](https://en.wikipedia.org/wiki/Message_authentication_code).
+	- [Keyed-hash MAC (HMAC)](https://en.wikipedia.org/wiki/HMAC).
 
 - Entropy
 	- PRNG (pseudo random number generators).
