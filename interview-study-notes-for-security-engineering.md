@@ -341,7 +341,9 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Symmetric has a shared key and is faster. Protocols often use asymmetric to transfer symmetric key.
 	- Perfect forward secrecy - eg Signal uses this.
 
-- Cyphers - Block vs stream 
+- Cyphers
+	- Block vs stream ciphers
+	- Block cipher modes of operation
 
 - Trusted Platform Module 
 	- (TPM)
