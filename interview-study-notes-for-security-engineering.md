@@ -400,6 +400,9 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 - Malware features
 	- Various methods of getting remote code execution. 
 	- Domain-flux.
+	- Fast-Flux.
+	- Covert C2 channels.
+	- Evasion techniques (e.g. anti-sandbox).
 	- Process hollowing. 
 	- Mutexes.
 	- Multi-vector and polymorphic attacks.
