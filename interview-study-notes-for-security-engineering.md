@@ -528,7 +528,9 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Qradar.
 	- Darktrace.
 	- Tcpdump.
-	- Wireshark. 
+	- Wireshark.
+
+- A curated list of [awesome threat detection](https://github.com/0x4D31/awesome-threat-detection) resources
 
 # Incident Management
 
