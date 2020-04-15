@@ -473,6 +473,8 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - IDS
 	- Intrusion Detection System (signature based (eg. snort) or behaviour based).
+	- Snort/Suricata rule writing
+	- Host-based Intrusion Detection System (eg. OSSEC)
 
 - SIEM
 	- System Information and Event Management.
