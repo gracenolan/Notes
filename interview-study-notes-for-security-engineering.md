@@ -445,6 +445,8 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 		- Interception attacks.
 		- Getting unsecured info over the network.
 
+- Exploit Kits and drive-by download attacks
+
 - Remote Control
 	- Remote code execution and privilege.
 	- Bind shell (opens port and waits for attacker).
