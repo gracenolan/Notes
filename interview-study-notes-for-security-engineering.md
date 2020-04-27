@@ -103,7 +103,8 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - SSL/TLS
 	- (443) 
-	- Super important to learn this, includes learning about  handshakes, encryption, signing, certificate authorities, trust systems.
+	- Super important to learn this, includes learning about handshakes, encryption, signing, certificate authorities, trust systems. [A good primer on all these concepts and algorithms](https://english.ncsc.nl/publications/publications/2019/juni/01/it-security-guidelines-for-transport-layer-security-tls) is made available by the Dutch cybersecurity center.
+	- (Various attacks against older versions of SSL/TLS (with catchy names)](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL).
 
 - TCP/UDP
 	- Web traffic, chat, voip, traceroute.
@@ -329,27 +330,32 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - Encryption vs Encoding vs Hashing vs Obfuscation vs Signing
 	- Be able to explain the differences between these things. 
+	- [Various attack models (e.g. chosen-plaintext attack)](https://en.wikipedia.org/wiki/Attack_model).
 
 - Encryption standards + implementations
-	- RSA (asymmetrical).
-	- AES (symmetrical).
-	- ECC (namely ed25519) (asymmetric). 
-	- Chacha/Salsa (symmetric).
+	- [RSA (asymmetrical)](https://en.wikipedia.org/wiki/RSA_(cryptosystem)).
+	- [AES (symmetrical)](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
+	- [ECC (namely ed25519) (asymmetric)](https://en.wikipedia.org/wiki/EdDSA).
+	- [Chacha/Salsa (symmetric)](https://en.wikipedia.org/wiki/Salsa20#ChaCha_variant).
 
 - Asymmetric vs symmetric
 	- Asymmetric is slow, but good for establishing a trusted connection.
 	- Symmetric has a shared key and is faster. Protocols often use asymmetric to transfer symmetric key.
 	- Perfect forward secrecy - eg Signal uses this.
 
-- Cyphers - Block vs stream 
+- Cyphers
+	- [Block vs stream ciphers](https://en.wikipedia.org/wiki/Cipher).
+	- [Block cipher modes of operation](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation).
+	- [AES-GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
 
 - Trusted Platform Module 
 	- (TPM)
 	- Trusted storage for certs and auth data locally on device/host.
 
-- Hashing functions 
-	- MD5, Sha-1), BLAKE. 
-	- Used for identifiers, very useful for fingerprinting malware samples.
+- Integrity and authenticity primitives
+	- [Hashing functions, e.g. MD5, Sha-1, BLAKE](https://en.wikipedia.org/wiki/Cryptographic_hash_function). Used for identifiers, very useful for fingerprinting malware samples.
+	- [Message Authentication Codes (MACs)](https://en.wikipedia.org/wiki/Message_authentication_code).
+	- [Keyed-hash MAC (HMAC)](https://en.wikipedia.org/wiki/HMAC).
 
 - Entropy
 	- PRNG (pseudo random number generators).
