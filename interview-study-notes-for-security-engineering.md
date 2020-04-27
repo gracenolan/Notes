@@ -406,6 +406,9 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 - Malware features
 	- Various methods of getting remote code execution. 
 	- Domain-flux.
+	- Fast-Flux.
+	- Covert C2 channels.
+	- Evasion techniques (e.g. anti-sandbox).
 	- Process hollowing. 
 	- Mutexes.
 	- Multi-vector and polymorphic attacks.
@@ -448,6 +451,8 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 		- Interception attacks.
 		- Getting unsecured info over the network.
 
+- Exploit Kits and drive-by download attacks
+
 - Remote Control
 	- Remote code execution and privilege.
 	- Bind shell (opens port and waits for attacker).
@@ -474,6 +479,8 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - IDS
 	- Intrusion Detection System (signature based (eg. snort) or behaviour based).
+	- Snort/Suricata rule writing
+	- Host-based Intrusion Detection System (eg. OSSEC)
 
 - SIEM
 	- System Information and Event Management.
@@ -534,7 +541,9 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Qradar.
 	- Darktrace.
 	- Tcpdump.
-	- Wireshark. 
+	- Wireshark.
+
+- A curated list of [awesome threat detection](https://github.com/0x4D31/awesome-threat-detection) resources
 
 # Incident Management
 
