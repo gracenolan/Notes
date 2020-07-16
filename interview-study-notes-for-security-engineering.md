@@ -607,11 +607,16 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 - Important things to know and understand
 	- Type of alerts, how these are triggered.
 	- Finding the root cause.
+	- Understand stages of an attack (e.g. cyber-killchain)
 	- Symptom vs Cause.
 	- First principles vs in depth systems knowledge (why both are good).
 	- Building timeline of events.
 	- Understand why you should assume good intent, and how to work with people rather than against them.
     - Prevent future incidents with the same root cause
+
+  - Response models
+    - SANS' PICERL (Preparation, Identification, Containement, Eradication, Recovery, Lessons learned)
+    - Google's IMAG (Incident Management At Google)
 
 # Coding & algorithms
 
