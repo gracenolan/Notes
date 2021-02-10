@@ -4,7 +4,7 @@
 I am a security engineer at Google and these are the notes from when I was studying for the interviews. This is my first job in security and a lot of people have asked me how I studied. My notes consist mostly of a list of terms and technologies to learn, plus little tidbits that helped me remember certain details. At the end are interview tips I made for myself and that I find myself saying to others looking to interview.
 
 **If you are less confident at coding:** 
-Spend more time writing small scrips and studying features of your preferred language. Coding is essential (even if you don't like it or you don't use it much in your current role). I have a section on coding in this list.
+Spend more time writing small scripts and studying features of your preferred language. Coding is essential (even if you don't like it or you don't use it much in your current role). I have a section on coding in this list.
 
 **If you are less confident at security topics:** 
 I recommend doing a lot of reading and whenever you come across a term you are unfamiliar with or couldn't easily explain, then add it to the list. 
@@ -167,7 +167,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - HTTP Response Header
 	- HTTP version
-	- Code- 200 OK, 403 forbidden, 404 not found, 500 server, 503 server unavailable, 301 Redirect notice 
+	- Code: 200 OK, 403 Forbidden, 404 Not Found, 500 Internal Server Error, 503 Server Unavailable, 301 Moved Permanently
 	- Type of data in response 
 	- Type of encoding
 	- Language 
@@ -397,12 +397,13 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 # Malware & Reversing
 
 - Interesting malware
-	- Conficker. 
-	- Morris worm.
-	- Zeus malware.
-	- Stuxnet.
-	- Wannacry.
-	- CookieMiner.
+	- [Conficker.](https://knowledge.broadcom.com/external/article?legacyId=tech93179)
+	- [Morris worm.](https://www.fbi.gov/history/famous-cases/morris-worm)
+	- [Zeus malware.](https://attack.mitre.org/software/S0330/)
+	- [Stuxnet.](https://www.mcafee.com/enterprise/en-us/security-awareness/ransomware/what-is-stuxnet.html)
+	- [Wannacry.](https://attack.mitre.org/software/S0366/)
+	- [CookieMiner.](https://attack.mitre.org/software/S0492/)
+	- [Sunburst.](https://www.fireeye.com/blog/threat-research/2020/12/sunburst-additional-technical-details.html)
 
 - Malware features
 	- Various methods of getting remote code execution. 
@@ -730,4 +731,3 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Doooo theeeeemmm yes they can be annoying to organise but it is *worth it*.
 
 ### Interviewers are potential friends and they want to help you get the job, they are on your side. Let them help you, ask them questions, say everything you know on a topic and *say your thought process out loud*.
-
