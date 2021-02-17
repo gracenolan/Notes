@@ -105,7 +105,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 - SSL/TLS
 	- (443) 
 	- Super important to learn this, includes learning about handshakes, encryption, signing, certificate authorities, trust systems. [A good primer on all these concepts and algorithms](https://english.ncsc.nl/publications/publications/2019/juni/01/it-security-guidelines-for-transport-layer-security-tls) is made available by the Dutch cybersecurity center.
-	- (Various attacks against older versions of SSL/TLS (with catchy names)](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL).
+	- Various attacks against older versions of SSL/TLS (with catchy names) on [Wikipedia](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL).
 
 - TCP/UDP
 	- Web traffic, chat, voip, traceroute.
@@ -248,29 +248,29 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 - SSRF 
 	- Server Side Request Forgery.
 
-- Web vuln scanners 
-- SQLmap
-- Malicious redirects
+- Web vuln scanners. 
+- SQLmap.
+- Malicious redirects.
 
 
 # Infrastructure (Prod / Cloud) Virtualisation 
 
-- Hypervisors
-- Hyperjacking
-- Containers
-- Escaping and privilege escalation techniques
-- Site isolation
-- Network connections from VMs / containers 
-- Side-channel attacks 
+- Hypervisors.
+- Hyperjacking.
+- Containers.
+- Escaping and privilege escalation techniques.
+- Site isolation.
+- Network connections from VMs / containers. 
+- Side-channel attacks. 
 - Beyondcorp 
 	- Trusting the host but not the network.
 
 # OS implementation and systems
 
-- Privilege escalation techniques, and prevention
-- Buffer Overflows 
-- Directory traversal (prevention)
-- Remote Code Execution / getting shells
+- Privilege escalation techniques, and prevention.
+- Buffer Overflows.
+- Directory traversal (prevention).
+- Remote Code Execution / getting shells.
 
 - Local databases
 	- Some messaging apps use sqlite for storing messages.
