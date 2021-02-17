@@ -34,7 +34,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Transport; layer 4 (TCP/UDP).
 	- Network; layer 3 (Routing).
 	- Datalink; layer 2 (Error checking and frame synchronisation).
-	- Physical; layer 1 (bits over fibre).
+	- Physical; layer 1 (Bits over fibre).
 	
 -	Firewalls
 	- Rules to prevent incoming and outgoing connections.
@@ -64,11 +64,12 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Pair MAC address with IP Address for IP connections. 
 
 - DHCP
-	- UDP (67, 68)
-	- Dynamic address allocation (allocated by router). 
+	- UDP (67 - Server, 68 - Client)
+	- Dynamic address allocation (allocated by router).
+	- `DHCPDISCOVER` -> `DHCPOFFER` -> `DHCPREQUEST` -> `DHCPACK`
 
 - Multiplex 
-	- timeshare, statistical share, just useful to know it exists.
+	- Timeshare, statistical share, just useful to know it exists.
 
 - Traceroute 
 	- Usually uses UDP, but might also use ICMP Echo Request or TCP SYN. TTL, or hop-limit.
@@ -149,9 +150,9 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Used inside orgs. 
 
 - Service ports
-	-  0 - 1023- reserved for common services - sudo required. 
-	- 1024 - 49151- registered ports used for IANA-registered services. 
-	- 49152 - 65535- dynamic ports that can be used for anything. 
+	- 0 - 1023: Reserved for common services - sudo required. 
+	- 1024 - 49151: Registered ports used for IANA-registered services. 
+	- 49152 - 65535: Dynamic ports that can be used for anything. 
 
 - HTTP Header
 	- | Verb | Path | HTTP version |
@@ -167,7 +168,12 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - HTTP Response Header
 	- HTTP version
-	- Code: 200 OK, 403 Forbidden, 404 Not Found, 500 Internal Server Error, 503 Server Unavailable, 301 Moved Permanently
+	- Status Codes: 
+		- 1xx: Informational Response
+		- 2xx: Successful
+		- 3xx: Redirection
+		- 4xx: Client Error
+		- 5xx: Server Error
 	- Type of data in response 
 	- Type of encoding
 	- Language 
@@ -397,13 +403,13 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 # Malware & Reversing
 
 - Interesting malware
-	- [Conficker.](https://knowledge.broadcom.com/external/article?legacyId=tech93179)
-	- [Morris worm.](https://www.fbi.gov/history/famous-cases/morris-worm)
-	- [Zeus malware.](https://attack.mitre.org/software/S0330/)
-	- [Stuxnet.](https://www.mcafee.com/enterprise/en-us/security-awareness/ransomware/what-is-stuxnet.html)
-	- [Wannacry.](https://attack.mitre.org/software/S0366/)
-	- [CookieMiner.](https://attack.mitre.org/software/S0492/)
-	- [Sunburst.](https://www.fireeye.com/blog/threat-research/2020/12/sunburst-additional-technical-details.html)
+	- Conficker.
+	- Morris worm.
+	- Zeus malware.
+	- Stuxnet.
+	- Wannacry.
+	- CookieMiner.
+	- Sunburst.
 
 - Malware features
 	- Various methods of getting remote code execution. 
@@ -667,7 +673,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 - Port scanners 
 	- Practice parsing network information.
 
-- botnets
+- Botnets
 	- How would you build ssh botnet.
 
 - Password bruteforcer
