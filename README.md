@@ -15,8 +15,8 @@ I've been at Google for few years now and I have been delighted to learn of how 
 Since joining I have also learned what keeps most people form getting through the Google Security Egnineering interview process. **The number one reason why a candidate misses out on an offer is because they struggle with the coding questions.**
 
 I have two things to say on this:
-1. Improving coding skills takes a lot of practice. Be sure to allow yourself enough time for it, including allowing time to be frustrated, to procrastinate, to iterate on your ideas, and to get help from others. Look for ways to make it fun or motivating - there are tedius repetitive tasks everywhere just waiting to be automated. 
-2. It is completely normal and acceptable to interview again (many times, in fact!). Hiring managers love to see how someone has grown their skills over time.
+1. **Improving coding skills takes a lot of practice.** Be sure to allow yourself enough time for it, including allowing time to be frustrated, to procrastinate, to iterate on your ideas, and to get help from others. Look for ways to make it fun or motivating - there are tedius repetitive tasks everywhere just waiting to be automated. 
+2. **It is completely normal and acceptable to interview again** (many times, in fact!). Hiring managers love to see how someone has grown their skills over time.
 
 If you are someone who didn't get an offer because you weren't confident in some areas, but you still believe that it would be a good role/company for you, take some time to build confidence in those areas and try again. 
 
