@@ -27,7 +27,7 @@
 	- Transport; layer 4 (TCP/UDP).
 	- Network; layer 3 (Routing).
 	- Datalink; layer 2 (Error checking and frame synchronisation).
-	- Physical; layer 1 (bits over fibre).
+	- Physical; layer 1 (Bits over fibre).
 	
 -	Firewalls
 	- Rules to prevent incoming and outgoing connections.
@@ -57,11 +57,12 @@
 	- Pair MAC address with IP Address for IP connections. 
 
 - DHCP
-	- UDP (67, 68)
-	- Dynamic address allocation (allocated by router). 
+	- UDP (67 - Server, 68 - Client)
+	- Dynamic address allocation (allocated by router).
+	- `DHCPDISCOVER` -> `DHCPOFFER` -> `DHCPREQUEST` -> `DHCPACK`
 
 - Multiplex 
-	- timeshare, statistical share, just useful to know it exists.
+	- Timeshare, statistical share, just useful to know it exists.
 
 - Traceroute 
 	- Usually uses UDP, but might also use ICMP Echo Request or TCP SYN. TTL, or hop-limit.
@@ -142,9 +143,9 @@
 	- Used inside orgs. 
 
 - Service ports
-	-  0 - 1023- reserved for common services - sudo required. 
-	- 1024 - 49151- registered ports used for IANA-registered services. 
-	- 49152 - 65535- dynamic ports that can be used for anything. 
+	- 0 - 1023: Reserved for common services - sudo required. 
+	- 1024 - 49151: Registered ports used for IANA-registered services. 
+	- 49152 - 65535: Dynamic ports that can be used for anything. 
 
 - HTTP Header
 	- | Verb | Path | HTTP version |
@@ -160,7 +161,12 @@
 
 - HTTP Response Header
 	- HTTP version
-	- Code- 200 OK, 403 forbidden, 404 not found, 500 server, 503 server unavailable, 301 Redirect notice 
+	- Status Codes: 
+		- 1xx: Informational Response
+		- 2xx: Successful
+		- 3xx: Redirection
+		- 4xx: Client Error
+		- 5xx: Server Error
 	- Type of data in response 
 	- Type of encoding
 	- Language 
@@ -390,12 +396,13 @@
 # Malware & Reversing
 
 - Interesting malware
-	- Conficker. 
+	- Conficker.
 	- Morris worm.
 	- Zeus malware.
 	- Stuxnet.
 	- Wannacry.
 	- CookieMiner.
+	- Sunburst.
 
 - Malware features
 	- Various methods of getting remote code execution. 
@@ -659,7 +666,7 @@
 - Port scanners 
 	- Practice parsing network information.
 
-- botnets
+- Botnets
 	- How would you build ssh botnet.
 
 - Password bruteforcer
@@ -723,4 +730,3 @@
 	- Doooo theeeeemmm yes they can be annoying to organise but it is *worth it*.
 
 ### Interviewers are potential friends and they want to help you get the job, they are on your side. Let them help you, ask them questions, say everything you know on a topic and *say your thought process out loud*.
-
