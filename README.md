@@ -9,6 +9,19 @@ Spend more time writing small scrips and studying features of your preferred lan
 **If you are less confident at security topics:** 
 I recommend doing a lot of reading and whenever you come across a term you are unfamiliar with or couldn't easily explain, then add it to the list. 
 
+### 3 Years Later [Update]
+I've been at Google for few years now and I have been delighted to learn of how many people have used these notes! Not just to get offers from Google but to get their first jobs in this industry, or to change focus area. I love hearing these stories! 
+
+Since joining I have also learned what keeps most people form getting through the Google Security Egnineering interview process. **The number one reason why a candidate misses out on an offer is because they struggle with the coding questions.**
+
+I have two things to say on this:
+1. Improving coding skills takes a lot of practice. Be sure to allow yourself enough time for it, including allowing time to be frustrated, to procrastinate, to iterate on your ideas, and to get help from others. Look for ways to make it fun or motivating - there are tedius repetitive tasks everywhere just waiting to be automated. 
+2. It is completely normal and acceptable to interview again (many times, in fact!). Hiring managers love to see how someone has grown their skills over time.
+
+If you are someone who didn't get an offer because you weren't confident in some areas, but you still believe that it would be a good role/company for you, take some time to build confidence in those areas and try again. 
+
+Finally, pull requests are welcome! Thank you to those who have made contributions and are helping to keep the list up to date.
+
 ### Contents
 - [Networking](interview-study-notes-for-security-engineering.md#networking)
 - [Web application](interview-study-notes-for-security-engineering.md#web-application)
