@@ -551,41 +551,42 @@
  - Evidence volatility (network vs memory vs disk)
 
  - Network forensics
-   - DNS logs / passive DNS
-   - Netflow
-   - Sampling rate
+	- DNS logs / passive DNS
+	- Netflow
+	- Sampling rate
 
  - Disk forensics
-   - Disk imaging
-   - Filesystems (NTFS / ext2/3/4 / AFPS)
-   - Logs (Windows event logs, Unix system logs, application logs)
-   - Data recovery (carving)
-   - Tools
-     - plaso / log2timeline
-     - FTK imager
-     - encase
+	- Disk imaging
+	- Filesystems (NTFS / ext2/3/4 / AFPS)
+	- Logs (Windows event logs, Unix system logs, application logs)
+	- Data recovery (carving)
+	- Tools
+	- plaso / log2timeline
+	- FTK imager
+	- encase
 
  - Memory forensics
-   - Memory acquisition (footprint, smear, hiberfiles)
-   - Virtual vs physical memory
-   - Life of an executable
-   - Memory structures
-   - Kernel space vs user space
-   - Tools
-     - Volatility
-     - Google Rapid Response (GRR) / Rekall
-     - WinDbg
+	- Memory acquisition (footprint, smear, hiberfiles)
+	- Virtual vs physical memory
+	- Life of an executable
+	- Memory structures
+	- Kernel space vs user space
+	- Tools
+	- Volatility
+	- Google Rapid Response (GRR) / Rekall
+	- WinDbg
 
   - Mobile forensics
-    - Jailbreaking devices, implications
-    - Differences between mobile and computer forensics
-    - Android vs. iPhone
+	- Jailbreaking devices, implications
+	- Differences between mobile and computer forensics
+	- Android vs. iPhone
 
   - Anti forensics
-    - How does malware try to hide?
-    - Timestomping
+	- How does malware try to hide?
+	- Timestomping
 
   - Chain of custody
+  	- Handover notes 
 
 # Incident Management
 
@@ -615,10 +616,25 @@
     - Prevent future incidents with the same root cause
 
   - Response models
-    - SANS' PICERL (Preparation, Identification, Containement, Eradication, Recovery, Lessons learned)
-    - Google's IMAG (Incident Management At Google)
+  	- SANS' PICERL (Preparation, Identification, Containement, Eradication, Recovery, Lessons learned)
+   	- Google's IMAG (Incident Management At Google)
 
 # Coding & algorithms
+
+- The basics
+	- Conditions (if, else).
+	- Loops (for loops, while loops).
+ 	- Dictionaries.
+ 	- Slices/lists/arrays.
+ 	- String/array operations (split, contaings, length, regular expressions).
+ 	- Pseudo code (concisely describing your approach to a problem).
+
+- Data structures
+	- Dictionaries / hash tables (array of linked lists, or sometimes a BST).
+	- Arrays.
+	- Stacks.
+	- SQL/tables. 
+	- Bigtables.
 
 - Sorting
 	- Quicksort, merge sort.
@@ -644,13 +660,6 @@
 	- Types (dynamic types), data structures.
 	- Pros and cons of Python vs C, Java, etc.
 	- Understand common functions very well, be comfortable in the language.
-
-- Data structures
-	- Dictionaries / hash tables (array of linked lists, or sometimes a BST).
-	- Arrays.
-	- Stacks.
-	- SQL/tables. 
-	- Bigtables.
 
 ## Security themed coding challenges
 
@@ -712,6 +721,7 @@
 	- The interviewer can only make an evaluation on your suitability for the job based on the things you *say*. 
 	- If you don't say your thought process aloud, then the interviewer doesn't know what you know. 
 	- Practice saying everything you know about a topic, even details you think might be irrelevant. 
+	- Write pseudo code for your coding solution so you don't have to hold everything in your head.
 
 - **Reduce cognitive load**
 	- If the infrastructure is complicated, draw up what you think it looks like. 
