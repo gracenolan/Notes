@@ -60,6 +60,7 @@
 	- Questions reveal how you approach problems.
 	- Write down notes about the question. This is so you don't forget details and only partially answer, or give the wrong answer.
 	- Interviews should be more like a conversation with a lot of back and forth, thoroughly explore scenarios together and avoid jumping too fast to a solution.
+	- The interviewer can only make an evaluation on your suitability for the job based on the things you *say*. 
 	- **Interviewers test depth of knowledge**
 		- There will be questions about technical details on topics to the point where it'll be hard to answer. This is okay, try your best to work through it and say what you're thinking.
 		- Interviewers often aren't looking for specific answers, they just want to see how deeply you know a topic.
@@ -86,13 +87,17 @@
 	- *"I don't know that exactly but I know something about a similar subject / sub component…"*
 	- *"This is what's popping into my mind right now is…"*
 	- *"The only thing that is coming to mind is…"* 
+	- *"I know a lot about [similar thing], I could talk about that instead? Would that be okay?"*
 
 - **Say what you are thinking**
 	- The interviewer can only make an evaluation on your suitability for the job based on the things you *say*. 
 	- If you don't say your thought process aloud, then the interviewer doesn't know what you know. 
-	- Practice speaking aloud everything you know about a topic, even details you think might be irrelevant. 
 	- You may well be on the right track with an answer. You'll be kicking yourself afterwards if you later realise you were but didn't say anything (I missed out on an internship because of this!)
 	- Write pseudo code for your coding solution so you don't have to hold everything in your head.
+	- *"Right now I am thinking about…"*
+	- *"I am thinking about different approaches, for example…"*
+	- *"I keep coming back to [subject/idea/thing] but I think that's not the right direction. I am thinking about…"*
+	- *"I'm interested in this idea that…"*
 
 - **Reduce cognitive load**
 	- Take notes on the question and assumptions during the interview.
@@ -115,6 +120,7 @@
 	- Do them until they feel more comfortable and you can easily talk through problems.
 	- Ask your friends/peers to give you really hard questions that you definitely don't know how to answer.
 	- Practice being in the very uncomfortable position where you have no idea about the topic you've been asked. Work through it from first principles.
+	- Practice speaking aloud everything you know about a topic, even details you think might be irrelevant. 
 	- Doooo theeeeemmm yes they can be annoying to organise but it is *worth it*.
 
 ### Interviewers are potential friends and they want to help you get the job, they are on your side. Let them help you, ask them questions, recite everything you know on a topic and *say your thought process out loud*.
