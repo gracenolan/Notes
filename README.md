@@ -23,6 +23,8 @@ If you are someone who didn't get an offer because you weren't confident in some
 Finally, pull requests are welcome! Thank you to those who have made contributions and are helping to keep the list up to date.
 
 ### Contents
+- [Learning tips](interview-study-notes-for-security-engineering.md#learning-tips)
+- [Interviewing tips](interview-study-notes-for-security-engineering.md#interviewing-tips)
 - [Networking](interview-study-notes-for-security-engineering.md#networking)
 - [Web application](interview-study-notes-for-security-engineering.md#web-application)
 - [Infrastructure (Prod / Cloud) Virtualisation](interview-study-notes-for-security-engineering.md#infrastructure-prod--cloud-virtualisation)
@@ -36,5 +38,3 @@ Finally, pull requests are welcome! Thank you to those who have made contributio
 - [Incident Management](interview-study-notes-for-security-engineering.md#incident-management)
 - [Coding & algorithms](interview-study-notes-for-security-engineering.md#coding--algorithms)
 - [Security themed coding challenges](interview-study-notes-for-security-engineering.md#security-themed-coding-challenges)
-- [Learning tips](interview-study-notes-for-security-engineering.md#learning-tips)
-- [Interviewing tips](interview-study-notes-for-security-engineering.md#interviewing-tips)
