@@ -13,6 +13,7 @@
 - [Cryptography, authentication, identity](#cryptography-authentication-identity)
 - [Malware & Reversing](#malware--reversing)
 - [Exploits](#exploits)
+- [Attack structure](#attack-structure)
 - [Detection](#detection)
 - [Digital Forensics](#digital-forensics)
 - [Incident Management](#incident-management)
@@ -585,7 +586,7 @@
 	- Hak5 tools.
 
 
-# Attack structure and approach
+# Attack structure
 
 Practice describing security concepts in the context of an attack. These categories are a rough guide on attack structure for a targeted attack. Non-targeted attacks tend to be a bit more "all-in-one".
 
