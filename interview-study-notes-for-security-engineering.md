@@ -19,9 +19,10 @@
 - [Coding & algorithms](#coding--algorithms)
 - [Security themed coding challenges](#security-themed-coding-challenges)
 
+
 # Learning tips 
 
-- [Learning How To Learn course on Coursera](https://www.coursera.org/learn/learning-how-to-learn) is amazing and very useful. Take the full course, or read [this summary on Medium](https://medium.com/learn-love-code/learnings-from-learning-how-to-learn-19d149920dc4).
+- [Learning How To Learn](https://www.coursera.org/learn/learning-how-to-learn) course on Coursera is amazing and very useful. Take the full course, or read this [summary](https://medium.com/learn-love-code/learnings-from-learning-how-to-learn-19d149920dc4) on Medium.
 
 - **Track concepts - "To learn", "Revising", "Done"**
 	- Any terms I couldn't easily explain went on to post-its. 
@@ -51,6 +52,7 @@
 	- Take care of your basic needs first - sleep, eat well, drink water, gentle exercise. You know yourself, so do what's best for you.
 	- You are more than your economic output, remember to separate your self worth from your paycheque. 
 	- See interviews for what they are - they are *not* a measure of you being "good enough".
+
 
 # Interviewing tips 
 
@@ -124,6 +126,7 @@
 	- Doooo theeeeemmm yes they can be annoying to organise but it is *worth it*.
 
 ### Interviewers are potential friends and they want to help you get the job, they are on your side. Let them help you, ask them questions, recite everything you know on a topic and *say your thought process out loud*.
+
 
 # Networking 
 
@@ -203,7 +206,7 @@
 
 - SSL/TLS
 	- (443) 
-	- Super important to learn this, includes learning about handshakes, encryption, signing, certificate authorities, trust systems. [A good primer on all these concepts and algorithms](https://english.ncsc.nl/publications/publications/2019/juni/01/it-security-guidelines-for-transport-layer-security-tls) is made available by the Dutch cybersecurity center.
+	- Super important to learn this, includes learning about handshakes, encryption, signing, certificate authorities, trust systems. A good [primer](https://english.ncsc.nl/publications/publications/2019/juni/01/it-security-guidelines-for-transport-layer-security-tls) on all these concepts and algorithms is made available by the Dutch cybersecurity center.
 	- Various attacks against older versions of SSL/TLS (with catchy names) on [Wikipedia](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL).
 
 - TCP/UDP
@@ -287,6 +290,7 @@
 - Root stores
 - CAM table overflow
 
+
 # Web application 
 
 - Same origin policy
@@ -369,6 +373,7 @@
 - Beyondcorp 
 	- Trusting the host but not the network.
 
+
 # OS implementation and systems
 
 - Privilege escalation techniques, and prevention.
@@ -435,13 +440,13 @@
 
 - Encryption vs Encoding vs Hashing vs Obfuscation vs Signing
 	- Be able to explain the differences between these things. 
-	- [Various attack models (e.g. chosen-plaintext attack)](https://en.wikipedia.org/wiki/Attack_model).
+	- [Various attack models](https://en.wikipedia.org/wiki/Attack_model) (e.g. chosen-plaintext attack).
 
 - Encryption standards + implementations
-	- [RSA (asymmetrical)](https://en.wikipedia.org/wiki/RSA_(cryptosystem)).
-	- [AES (symmetrical)](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
-	- [ECC (namely ed25519) (asymmetric)](https://en.wikipedia.org/wiki/EdDSA).
-	- [Chacha/Salsa (symmetric)](https://en.wikipedia.org/wiki/Salsa20#ChaCha_variant).
+	- [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) (asymmetrical).
+	- [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) (symmetrical).
+	- [ECC](https://en.wikipedia.org/wiki/EdDSA) (namely ed25519) (asymmetric).
+	- [Chacha/Salsa](https://en.wikipedia.org/wiki/Salsa20#ChaCha_variant) (symmetric).
 
 - Asymmetric vs symmetric
 	- Asymmetric is slow, but good for establishing a trusted connection.
@@ -449,7 +454,7 @@
 	- Perfect forward secrecy - eg Signal uses this.
 
 - Cyphers
-	- [Block vs stream ciphers](https://en.wikipedia.org/wiki/Cipher).
+	- Block vs stream [ciphers](https://en.wikipedia.org/wiki/Cipher).
 	- [Block cipher modes of operation](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation).
 	- [AES-GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
 
@@ -458,7 +463,7 @@
 	- Trusted storage for certs and auth data locally on device/host.
 
 - Integrity and authenticity primitives
-	- [Hashing functions, e.g. MD5, Sha-1, BLAKE](https://en.wikipedia.org/wiki/Cryptographic_hash_function). Used for identifiers, very useful for fingerprinting malware samples.
+	- [Hashing functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) e.g. MD5, Sha-1, BLAKE. Used for identifiers, very useful for fingerprinting malware samples.
 	- [Message Authentication Codes (MACs)](https://en.wikipedia.org/wiki/Message_authentication_code).
 	- [Keyed-hash MAC (HMAC)](https://en.wikipedia.org/wiki/HMAC).
 
@@ -530,6 +535,7 @@
 	- Reverse.it. 
 	- Hybrid Analysis.
 
+
 # Exploits
 
 - Three ways to attack - Social, Physical, Network 
@@ -560,7 +566,7 @@
 - Exploit Kits and drive-by download attacks
 
 - Remote Control
-	- Remote code execution and privilege.
+	- Remote code execution (RCE) and privilege.
 	- Bind shell (opens port and waits for attacker).
 	- Reverse shell (connects to port on attackers C2 server).
 
@@ -578,14 +584,74 @@
 	- Google the version number of anything to look for exploits.
 	- Hak5 tools.
 
-- Look at mitre attack matrix
-	- https://attack.mitre.org/
+
+# Attack structure and approach
+
+Practice describing security concepts in the context of an attack. These categories are a rough guide on attack structure for a targeted attack. Non-targeted attacks tend to be a bit more "all-in-one".
+
+- Reconnaissance
+	- OSINT, Google dorking, Shodan.
+- Resource development
+	- Get infrafrusture (via compromise or otherwise).
+	- Build malware.
+	- Compromise accounts.
+- Initial access
+	- Phishing.
+	- Hardware placements.
+	- Supply chain compromise.
+	- Exploit public-facing apps.
+- Execution
+	- Shells & interpreters (powershell, python, javascript, etc.).
+	- Scheduled tasks, Windows Management Instrumentation (WMI).
+- Persistence
+	- Additional accounts/creds.
+	- Start-up/log-on/boot scripts, modify launch agents, DLL side-loading, Webshells.
+	- Scheduled tasks.
+- Privilege escalation
+	- Sudo, token/key theft, IAM/group policy modification.
+	- Many persistence exploits are PrivEsc methods too.
+- Defense evasion
+	- Disable detection software & logging.
+	- Revert VM/Cloud instances.
+	- Process hollowing/injection, bootkits.
+- Credential access
+	- Brute force, access password managers, keylogging.
+	- etc/passwd & etc/shadow.
+	- Windows DCSync, Kerberos Gold & Silver tickets.
+	- Clear-text creds in files/pastebin, etc.
+- Discovery
+	- Network scanning.
+	- Find accounts by listing policies.
+	- Find remote systems, software and system info, VM/sandbox.
+- Lateral movement
+	- SSH/RDP/SMB.
+	- Compromise shared content, internal spear phishing.
+	- Pass the hash/ticket, tokens, cookies.
+- Collection
+	- Database dumps.
+	- Audio/video/screen capture, keylogging.
+	- Internal documentation, network shared drives, internal traffic interception.
+- Exfiltration
+	- Removable media/USB, Bluetooth exfil.
+	- C2 channels, DNS exfil, web services like code repos & Cloud backup storage.
+	- Scheduled transfers.
+- Command and control
+	- Web service (dead drop resolvers, one-way/bi-directional traffic), encrypted channels.
+	- Removable media.
+	- Steganography, encoded commands.
+- Impact
+	- Deleted accounts or data, encrypt data (like ransomware).
+	- Defacement.
+	- Denial of service, shutdown/reboot systems.
+
+See [Mitre ATT&CK](https://attack.mitre.org/) for more info.
+
 
 # Detection
 
 - IDS
 	- Intrusion Detection System (signature based (eg. snort) or behaviour based).
-	- Snort/Suricata rule writing
+	- Snort/Suricata/YARA rule writing
 	- Host-based Intrusion Detection System (eg. OSSEC)
 
 - SIEM
@@ -593,6 +659,7 @@
 
 - IOC 
 	- Indicator of compromise (often shared amongst orgs/groups).
+	- Specific details (e.g. IP addresses, hashes, domains)
 
 - Things that create signals
 	- Honeypots, snort.
@@ -648,8 +715,10 @@
 	- Darktrace.
 	- Tcpdump.
 	- Wireshark.
+	- Zeek.
 
 - A curated list of [awesome threat detection](https://github.com/0x4D31/awesome-threat-detection) resources
+
 
 # Digital Forensics
 
@@ -693,6 +762,7 @@
   - Chain of custody
   	- Handover notes 
 
+
 # Incident Management
 
 - Privacy incidents vs information security incidents
@@ -708,7 +778,7 @@
 	- Ways an attacker may clean up / hide their attack.
 	- When / how to inform upper management (manage expectations).
 	- Metrics to assign Priorities (e.g. what needs to happen until you increase the prio for a case)
-    - Use playbooks if available
+	- Use playbooks if available
 
 - Important things to know and understand
 	- Type of alerts, how these are triggered.
@@ -718,11 +788,12 @@
 	- First principles vs in depth systems knowledge (why both are good).
 	- Building timeline of events.
 	- Understand why you should assume good intent, and how to work with people rather than against them.
-    - Prevent future incidents with the same root cause
+	- Prevent future incidents with the same root cause
 
   - Response models
   	- SANS' PICERL (Preparation, Identification, Containement, Eradication, Recovery, Lessons learned)
    	- Google's IMAG (Incident Management At Google)
+
 
 # Coding & algorithms
 
@@ -766,24 +837,39 @@
 	- Pros and cons of Python vs C, Java, etc.
 	- Understand common functions very well, be comfortable in the language.
 
+
 ## Security themed coding challenges
 
+These security engineering challenges focus on text parsing and manipulation, basic data structures, and simple logic flows. Give the challenges a go, no need to finish them to completion because all practice helps.
+
 - Cyphers / encryption algorithms 
+	- Implement a cypher which converts text to emoji or something.
 	- Be able to implement basic cyphers.
 
 - Parse arbitrary logs 
-	- Practice text parsing.
+	- Collect logs (of any kind) and write a parder which pulls out specific details (domains, executable names, timestamps etc.)
 
 - Web scrapers 
-	- Another way to practice text parsing.
+	- Write a script to scrape information from a website.
 
 - Port scanners 
-	- Practice parsing network information.
+	- Write a port scanner or detect port scanning.
 
 - Botnets
-	- How would you build ssh botnet.
+	- How would you build ssh botnet?
 
 - Password bruteforcer
-- Scrape meta data from PDFs 
-- Script to recover deleted items
-- A program that looks for malware signatures in binaries / code samples
+	- Generate credentials and store successful logins. 
+
+- Scrape metadata from PDFs
+	- Write a mini forensics tool to collect identifying information from PDF metadata. 
+
+- Recover deleted items
+	- Most software will keep deleted items for ~30 days for recovery. Find out where these are stored. 
+	- Write a script to pull these items from local databases. 
+ 
+- Malware signatures
+	- A program that looks for malware signatures in binaries and code samples.
+	- Look at Yara rules for examples.
+
+Put your work-in-progress scripts on GitHub and link to them on your resume/CV. Resist the urge to make your scripts perfect or complete before doing this. 
