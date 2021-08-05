@@ -34,7 +34,7 @@
 	- Using paper reduces distractions.
 
 - **How to review concepts**
-	- Use spaced-repition.
+	- Use spaced-repetition.
 	- Don't immediately look up the asnwer, EVEN IF you have never seen the term before. Ask yourself what the term means. Guess the answer. Then look it up.
 	- Review terms *all the time*. You can review items in your head at any time. If I was struggling to fall asleep, I'd go through terms in my head and explained them to myself. 100% success rate of falling asleep in less than 10 minutes, works every time. 
 
