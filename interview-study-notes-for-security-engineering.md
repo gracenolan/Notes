@@ -848,7 +848,7 @@ These security engineering challenges focus on text parsing and manipulation, ba
 	- Be able to implement basic cyphers.
 
 - Parse arbitrary logs 
-	- Collect logs (of any kind) and write a parder which pulls out specific details (domains, executable names, timestamps etc.)
+	- Collect logs (of any kind) and write a parser which pulls out specific details (domains, executable names, timestamps etc.)
 
 - Web scrapers 
 	- Write a script to scrape information from a website.
