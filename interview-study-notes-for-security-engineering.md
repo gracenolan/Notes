@@ -305,7 +305,7 @@
 
 - Cert transparency 
 	- Can verify certificates against public logs
-	- This is a good resource to understand
+	- This is a good resource to understand - https://www.youtube.com/watch?v=bfZwhspXJEU
 	
 - HTTP Public Key Pinning
 	- (HPKP)
