@@ -304,7 +304,8 @@
 	- Policies, eg what websites use HTTPS.
 
 - Cert transparency 
-	- Can verify certificates against public logs 
+	- Can verify certificates against public logs
+	- This is a good resource to understand
 	
 - HTTP Public Key Pinning
 	- (HPKP)
