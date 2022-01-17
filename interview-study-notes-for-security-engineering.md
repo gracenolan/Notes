@@ -656,7 +656,7 @@ See [Mitre ATT&CK](https://attack.mitre.org/) for more info.
 	- Host-based Intrusion Detection System (eg. OSSEC)
 
 - SIEM
-	- System Information and Event Management.
+	- Security Information and Event Management.
 
 - IOC 
 	- Indicator of compromise (often shared amongst orgs/groups).
