@@ -14,12 +14,16 @@
 - [Malware & Reversing](#malware--reversing)
 - [Exploits](#exploits)
 - [Attack structure](#attack-structure)
+- [Threat Modeling](#threat-modeling)
 - [Detection](#detection)
 - [Digital Forensics](#digital-forensics)
 - [Incident Management](#incident-management)
 - [Coding & algorithms](#coding--algorithms)
 - [Security themed coding challenges](#security-themed-coding-challenges)
 
+# Background
+
+Where did these notes come from? See the [README](README.md).
 
 # Learning tips 
 
@@ -30,6 +34,7 @@
 	- One term per post-it. 
 	- "To learn", "Revising", "Done" was written on my whiteboard and I moved my post-its between these categories, I attended to this every few days.
 	- I looked up terms everyday, and I practiced recalling terms and explaining them to myself every time I remembered I had these interviews coming up (frequently).
+	- I focused on the most difficult topics first before moving onto easier topics.
 	- I carried around a notebook and wrote down terms and explanations. 
 	- Using paper reduces distractions.
 
@@ -40,9 +45,10 @@
 
 - **Target your learning**
 	- Think *hard* about what specific team you are going for, what skills do they want? If you aren't sure, then ask someone who will definitely know.
+	- Always focus on the areas you struggle with the most *first* in a study session. Then move onto easier or more familiar topics. 
 
 - **Identify what you need to work on** 
-	- Spend more time doing the difficult things
+	- Spend more time doing the difficult things.
 	- If you're weak on coding and you find yourself avoiding it, then spend most of your study time doing that.
 
 - **Read**
@@ -645,7 +651,21 @@ Practice describing security concepts in the context of an attack. These categor
 	- Defacement.
 	- Denial of service, shutdown/reboot systems.
 
-See [Mitre ATT&CK](https://attack.mitre.org/) for more info.
+
+# Threat Modeling
+
+- Threat Matrix
+- Trust Boundries
+- Security Controls
+- STRIDE framework
+	- **S**poofing
+	- **T**ampering
+	- **R**epudiation
+	- **I**nformation disclosure
+	- **D**enial of service
+	- **E**levation of privilege 
+- [MITRE Att&ck](https://attack.mitre.org/) framework
+- [Excellent talk](https://www.youtube.com/watch?v=vbwb6zqjZ7o) on "Defense Against the Dark Arts" by Lilly Ryan (contains *many* Harry Potter spoilers)
 
 
 # Detection
@@ -874,10 +894,3 @@ These security engineering challenges focus on text parsing and manipulation, ba
 	- Look at Yara rules for examples.
 
 Put your work-in-progress scripts on GitHub and link to them on your resume/CV. Resist the urge to make your scripts perfect or complete before doing this. 
-## Threat Modeling
-
-- Trust Boundries
-- Frameworks STRIDE
-- MITRE Att&ck Framework
-- Security Controls
-- Threat Matrix
