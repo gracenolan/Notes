@@ -3,23 +3,23 @@
 
 ### Contents
 - [README](README.md)
-- [Learning tips](#learning-tips)
-- [Interviewing tips](#interviewing-tips)
+- [Learning Tips](#learning-tips)
+- [Interviewing Tips](#interviewing-tips)
 - [Networking](#networking)
-- [Web application](#web-application)
+- [Web Application](#web-application)
 - [Infrastructure (Prod / Cloud) Virtualisation](#infrastructure-prod--cloud-virtualisation)
-- [OS implementation and systems](#os-implementation-and-systems)
+- [OS Implementation and Systems](#os-implementation-and-systems)
 - [Mitigations](#mitigations)
-- [Cryptography, authentication, identity](#cryptography-authentication-identity)
+- [Cryptography, Authentication, Identity](#cryptography-authentication-identity)
 - [Malware & Reversing](#malware--reversing)
 - [Exploits](#exploits)
-- [Attack structure](#attack-structure)
+- [Attack Structure](#attack-structure)
 - [Threat Modeling](#threat-modeling)
 - [Detection](#detection)
 - [Digital Forensics](#digital-forensics)
 - [Incident Management](#incident-management)
-- [Coding & algorithms](#coding--algorithms)
-- [Security themed coding challenges](#security-themed-coding-challenges)
+- [Coding & Algorithms](#coding--algorithms)
+- [Security Themed Coding Challenges](#security-themed-coding-challenges)
 
 # Background
 
@@ -45,7 +45,7 @@ Where did these notes come from? See the [README](README.md).
 
 - **Target your learning**
 	- Think *hard* about what specific team you are going for, what skills do they want? If you aren't sure, then ask someone who will definitely know.
-	- Always focus on the areas you struggle with the most *first* in a study session. Then move onto easier or more familiar topics. 
+	- Always focus on the areas you struggle with the most *first* in a study session. Then move on to easier or more familiar topics. 
 
 - **Identify what you need to work on** 
 	- Spend more time doing the difficult things.
