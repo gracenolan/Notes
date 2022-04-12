@@ -874,3 +874,10 @@ These security engineering challenges focus on text parsing and manipulation, ba
 	- Look at Yara rules for examples.
 
 Put your work-in-progress scripts on GitHub and link to them on your resume/CV. Resist the urge to make your scripts perfect or complete before doing this. 
+## Threat Modeling
+
+- Trust Boundries
+- Frameworks STRIDE
+- MITRE Att&ck Framework
+- Security Controls
+- Threat Matrix
