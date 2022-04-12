@@ -25,7 +25,7 @@
 
 Where did these notes come from? See the [README](README.md).
 
-# Learning tips 
+# Learning Tips 
 
 - [Learning How To Learn](https://www.coursera.org/learn/learning-how-to-learn) course on Coursera is amazing and very useful. Take the full course, or read this [summary](https://medium.com/learn-love-code/learnings-from-learning-how-to-learn-19d149920dc4) on Medium.
 
@@ -61,7 +61,7 @@ Where did these notes come from? See the [README](README.md).
 	- See interviews for what they are - they are *not* a measure of you being "good enough".
 
 
-# Interviewing tips 
+# Interviewing Tips 
 
 - **Interview questions**
 	- Interview questions are intentionally vague. This is to encourage questions.
@@ -298,7 +298,7 @@ Where did these notes come from? See the [README](README.md).
 - CAM table overflow
 
 
-# Web application 
+# Web Application 
 
 - Same origin policy
 	- Only accept requests from the same origin domain. 
@@ -381,7 +381,7 @@ Where did these notes come from? See the [README](README.md).
 	- Trusting the host but not the network.
 
 
-# OS implementation and systems
+# OS Implementation and Systems
 
 - Privilege escalation techniques, and prevention.
 - Buffer Overflows.
@@ -443,7 +443,7 @@ Where did these notes come from? See the [README](README.md).
 	- Security is about protecting people, we should build technology that people can trust, not constantly blame users. 
 
 
-# Cryptography, authentication, identity 
+# Cryptography, Authentication, Identity 
 
 - Encryption vs Encoding vs Hashing vs Obfuscation vs Signing
 	- Be able to explain the differences between these things. 
@@ -592,7 +592,7 @@ Where did these notes come from? See the [README](README.md).
 	- Hak5 tools.
 
 
-# Attack structure
+# Attack Structure
 
 Practice describing security concepts in the context of an attack. These categories are a rough guide on attack structure for a targeted attack. Non-targeted attacks tend to be a bit more "all-in-one".
 
@@ -816,7 +816,7 @@ Practice describing security concepts in the context of an attack. These categor
    	- Google's IMAG (Incident Management At Google)
 
 
-# Coding & algorithms
+# Coding & Algorithms
 
 - The basics
 	- Conditions (if, else).
@@ -859,7 +859,7 @@ Practice describing security concepts in the context of an attack. These categor
 	- Understand common functions very well, be comfortable in the language.
 
 
-## Security themed coding challenges
+## Security Themed Coding Challenges
 
 These security engineering challenges focus on text parsing and manipulation, basic data structures, and simple logic flows. Give the challenges a go, no need to finish them to completion because all practice helps.
 
