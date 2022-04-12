@@ -35,7 +35,7 @@
 
 - **How to review concepts**
 	- Use spaced-repetition.
-	- Don't immediately look up the asnwer, EVEN IF you have never seen the term before. Ask yourself what the term means. Guess the answer. Then look it up.
+	- Don't immediately look up the answer, EVEN IF you have never seen the term before. Ask yourself what the term means. Guess the answer. Then look it up.
 	- Review terms *all the time*. You can review items in your head at any time. If I was struggling to fall asleep, I'd go through terms in my head and explained them to myself. 100% success rate of falling asleep in less than 10 minutes, works every time. 
 
 - **Target your learning**
@@ -593,7 +593,7 @@ Practice describing security concepts in the context of an attack. These categor
 - Reconnaissance
 	- OSINT, Google dorking, Shodan.
 - Resource development
-	- Get infrafrusture (via compromise or otherwise).
+	- Get infrastructure (via compromise or otherwise).
 	- Build malware.
 	- Compromise accounts.
 - Initial access
