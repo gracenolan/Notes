@@ -465,6 +465,10 @@ Where did these notes come from? See the [README](README.md).
 	- [Block cipher modes of operation](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation).
 	- [AES-GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
 
+- TLS Security
+	- Attacks (https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/).
+	- POODLE, BEAST, CRIME, BREACH, HEARTBLEED 
+
 - Trusted Platform Module 
 	- (TPM)
 	- Trusted storage for certs and auth data locally on device/host.
