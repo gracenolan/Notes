@@ -186,7 +186,7 @@ Where did these notes come from? See the [README](README.md).
 - Nmap 
 	- Network scanning tool.
 
-- Intercepts (MiTM) 
+- Intercepts (PitM - Person in the middle) 
 	- Understand PKI (public key infrastructure in relation to this).
 
 - VPN 
