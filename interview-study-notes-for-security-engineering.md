@@ -175,7 +175,7 @@ Where did these notes come from? See the [README](README.md).
 	- Initial hop-limit is 128 for windows and 64 for *nix. Destination returns ICMP Echo Reply. 
 - Nmap 
 	- Network scanning tool.
-- Intercepts (MiTM) 
+- Intercepts (PitM - Person in the middle)
 	- Understand PKI (public key infrastructure in relation to this).
 - VPN 
 	- Hide traffic from ISP but expose traffic to VPN provider.
