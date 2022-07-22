@@ -101,7 +101,7 @@ Where did these notes come from? See the [README](README.md).
 - **Say what you are thinking**
 	- The interviewer can only make an evaluation on your suitability for the job based on the things you *say*. 
 	- If you don't say your thought process aloud, then the interviewer doesn't know what you know. 
-	- You may well be on the right track with an answer. You'll be kicking yourself afterwards if you later realise you were but didn't say anything (I missed out on an internship because of this!)
+	- You may well be on the right track with an answer. You'll be kicking yourself afterwards if you later realise you were but didn't say anything (I missed out on an internship because of this!).
 	- Write pseudo code for your coding solution so you don't have to hold everything in your head.
 	- *"Right now I am thinking about…"*
 	- *"I am thinking about different approaches, for example…"*
@@ -142,24 +142,19 @@ Where did these notes come from? See the [README](README.md).
 	- Transport; layer 4 (TCP/UDP).
 	- Network; layer 3 (Routing).
 	- Datalink; layer 2 (Error checking and frame synchronisation).
-	- Physical; layer 1 (Bits over fibre).
-	
--	Firewalls
-	- Rules to prevent incoming and outgoing connections.
-	
--	NAT 
+	- Physical; layer 1 (Bits over fibre).	
+- Firewalls
+	- Rules to prevent incoming and outgoing connections.	
+- NAT 
 	- Useful to understand IPv4 vs IPv6.
-
 - DNS
 	- (53)
 	- Requests to DNS are usually UDP, unless the server gives a redirect notice asking for a TCP connection. Look up in cache happens first. DNS exfiltration. Using raw IP addresses means no DNS logs, but there are HTTP logs. DNS sinkholes.
 	- In a reverse DNS lookup, PTR might contain- 2.152.80.208.in-addr.arpa, which will map to  208.80.152.2. DNS lookups start at the end of the string and work backwards, which is why the IP address is backwards in PTR.
-
 - DNS exfiltration 
 	- Sending data as subdomains. 
 	- 26856485f6476a567567c6576e678.badguy.com
 	- Doesn’t show up in http logs. 
-
 - DNS configs
 	- Start of Authority (SOA).
 	- IP addresses (A and AAAA).
@@ -167,101 +162,76 @@ Where did these notes come from? See the [README](README.md).
 	- Name servers (NS).
 	- Pointers for reverse DNS lookups (PTR).
 	- Domain name aliases (CNAME).
- 
 - ARP
 	- Pair MAC address with IP Address for IP connections. 
-
 - DHCP
 	- UDP (67 - Server, 68 - Client)
 	- Dynamic address allocation (allocated by router).
 	- `DHCPDISCOVER` -> `DHCPOFFER` -> `DHCPREQUEST` -> `DHCPACK`
-
 - Multiplex 
 	- Timeshare, statistical share, just useful to know it exists.
-
 - Traceroute 
 	- Usually uses UDP, but might also use ICMP Echo Request or TCP SYN. TTL, or hop-limit.
 	- Initial hop-limit is 128 for windows and 64 for *nix. Destination returns ICMP Echo Reply. 
-
 - Nmap 
 	- Network scanning tool.
-
-- Intercepts (PitM - Person in the middle) 
+- Intercepts (MiTM) 
 	- Understand PKI (public key infrastructure in relation to this).
-
 - VPN 
 	- Hide traffic from ISP but expose traffic to VPN provider.
-
 - Tor 
 	- Traffic is obvious on a network. 
 	- How do organised crime investigators find people on tor networks. 
-
 - Proxy  
 	- Why 7 proxies won’t help you. 
-
 - BGP
 	- Border Gateway Protocol.
 	- Holds the internet together.
-
 - Network traffic tools
 	- Wireshark
 	- Tcpdump
 	- Burp suite
-
 - HTTP/S 
 	- (80, 443)
-
 - SSL/TLS
 	- (443) 
 	- Super important to learn this, includes learning about handshakes, encryption, signing, certificate authorities, trust systems. A good [primer](https://english.ncsc.nl/publications/publications/2021/january/19/it-security-guidelines-for-transport-layer-security-2.1) on all these concepts and algorithms is made available by the Dutch cybersecurity center.
-	- Various attacks against older versions of SSL/TLS (with catchy names) on [Wikipedia](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL).
-
+	- POODLE, BEAST, CRIME, BREACH, HEARTBLEED.
 - TCP/UDP
 	- Web traffic, chat, voip, traceroute.
 	- TCP will throttle back if packets are lost but UDP doesn't. 
 	- Streaming can slow network TCP connections sharing the same network.
-
 - ICMP 
 	- Ping and traceroute.
-
 - Mail
 	- SMTP (25, 587, 465)
 	- IMAP (143, 993)
 	- POP3 (110, 995)
-
 - SSH 
 	- (22)
 	- Handshake uses asymmetric encryption to exchange symmetric key.
-
 - Telnet
 	- (23, 992)
 	- Allows remote communication with hosts.
-
 - ARP  
 	- Who is 0.0.0.0? Tell 0.0.0.1.
 	- Linking IP address to MAC, Looks at cache first.
-
 - DHCP 
 	- (67, 68) (546, 547)
 	- Dynamic (leases IP address, not persistent).
 	- Automatic (leases IP address and remembers MAC and IP pairing in a table).
 	- Manual (static IP set by administrator).
-
 - IRC 
 	- Understand use by hackers (botnets).
-
 - FTP/SFTP 
 	- (21, 22)
-
 - RPC 
 	- Predefined set of tasks that remote clients can execute.
 	- Used inside orgs. 
-
 - Service ports
 	- 0 - 1023: Reserved for common services - sudo required. 
 	- 1024 - 49151: Registered ports used for IANA-registered services. 
 	- 49152 - 65535: Dynamic ports that can be used for anything. 
-
 - HTTP Header
 	- | Verb | Path | HTTP version |
 	- Domain
@@ -273,7 +243,6 @@ Where did these notes come from? See the [README](README.md).
 	- Referrer
 	- Return address
 	- Expected Size?
-
 - HTTP Response Header
 	- HTTP version
 	- Status Codes: 
@@ -286,13 +255,11 @@ Where did these notes come from? See the [README](README.md).
 	- Type of encoding
 	- Language 
 	- Charset
-
 - UDP Header
 	- Source port
 	- Destination port
 	- Length
 	- Checksum
-
 - Broadcast domains and collision domains. 
 - Root stores
 - CAM table overflow
@@ -301,68 +268,50 @@ Where did these notes come from? See the [README](README.md).
 # Web Application 
 
 - Same origin policy
-	- Only accept requests from the same origin domain. 
- 
+	- Only accept requests from the same origin domain.  
 - CORS 
 	- Cross-Origin Resource Sharing. Can specify allowed origins in HTTP headers. Sends a preflight request with options set asking if the server approves, and if the server approves, then the actual request is sent (eg. should client send auth cookies).
-
 - HSTS 
 	- Policies, eg what websites use HTTPS.
-
 - Cert transparency 
-	- Can verify certificates against public logs 
-	
+	- Can verify certificates against public logs 	
 - HTTP Public Key Pinning
 	- (HPKP)
 	- Deprecated by Google Chrome
-
 - Cookies 
 	- httponly - cannot be accessed by javascript.
-
 - CSRF
 	- Cross-Site Request Forgery.
 	- Cookies.
-
 - XSS
 	- Reflected XSS.
 	- Persistent XSS.
 	- DOM based /client-side XSS.
 	- `<img scr=””>` will often load content from other websites, making a cross-origin HTTP request. 
-
 - SQLi 
-	- (Wo)man in the browser (flash / java applets) (malware).
+	- Person-in-the-browser (flash / java applets) (malware).
 	- Validation / sanitisation of webforms.
-
 - POST 
 	- Form data. 
-
 - GET 
 	- Queries. 
 	- Visible from URL.
-
 - Directory traversal 
 	- Find directories on the server you’re not meant to be able to see.
 	- There are tools that do this.
-
 - APIs 
 	- Think about what information they return. 
 	- And what can be sent.
-
 - Beefhook
 	- Get info about Chrome extensions.
-
 - User agents
 	- Is this a legitimate browser? Or a botnet?
-
 - Browser extension take-overs
 	- Miners, cred stealers, adware.
-
 - Local file inclusion
 - Remote file inclusion (not as common these days)
-
 - SSRF 
 	- Server Side Request Forgery.
-
 - Web vuln scanners. 
 - SQLmap.
 - Malicious redirects.
@@ -372,13 +321,18 @@ Where did these notes come from? See the [README](README.md).
 
 - Hypervisors.
 - Hyperjacking.
-- Containers.
-- Escaping and privilege escalation techniques.
+- Containers, VMs, clusters.
+- Escaping techniques.
+	- Network connections from VMs / containers.  
+- Lateral movement and privilege escalation techniques.
+	- Cloud Service Accounts can be used for lateral movement and privilege escalation in Cloud environments.
+	- GCPloit tool for Google Cloud Projects.
 - Site isolation.
-- Network connections from VMs / containers. 
-- Side-channel attacks. 
+- Side-channel attacks.
+	- Spectre, Meltdown.
 - Beyondcorp 
 	- Trusting the host but not the network.
+- Log4j vuln. 
 
 
 # OS Implementation and Systems
@@ -387,18 +341,19 @@ Where did these notes come from? See the [README](README.md).
 - Buffer Overflows.
 - Directory traversal (prevention).
 - Remote Code Execution / getting shells.
-
 - Local databases
 	- Some messaging apps use sqlite for storing messages.
 	- Useful for digital forensics, especially on phones.
-
 - Windows
-	- Windows registry and group policy. 
+	- Windows registry and group policy.
+	- Active Directory (AD).
+		- Bloodhound tool. 
+		- Kerberos authentication with AD.
 	- Windows SMB. 
 	- Samba (with SMB).
 	- Buffer Overflows. 
 	- ROP. 
-
+	
 - *nix 
 	- SELinux.
 	- Kernel, userspace, permissions.
@@ -407,7 +362,6 @@ Where did these notes come from? See the [README](README.md).
 	- /tmp - code can be saved here and executed.
 	- /shadow 
 	- LDAP - Lightweight Directory Browsing Protocol. Lets users have one password for many services. This is similar to Active Directory in windows.
-
 - MacOS
 	- Gotofail error (SSL).
 	- MacSweeper.
@@ -416,29 +370,22 @@ Where did these notes come from? See the [README](README.md).
 ## Mitigations 
 - Patching 
 - Data Execution Prevention
-
 - Address space layout randomisation
 	- To make it harder for buffer overruns to execute privileged instructions at known addresses in memory.
-
 - Principle of least privilege
 	- Eg running Internet Explorer with the Administrator SID disabled in the process token. Reduces the ability of buffer overrun exploits to run as elevated user.
-
 - Code signing
 	- Requiring kernel mode code to be digitally signed.
-
 - Compiler security features
 	- Use of compilers that trap buffer overruns.
-
 - Encryption
 	- Of software and/or firmware components.
-
 - Mandatory Access Controls
 	- (MACs)
+	- Access Control Lists (ACLs)
 	- Operating systems with Mandatory Access Controls - eg. SELinux.
-
 - "Insecure by exception"
 	- When to allow people to do certain things for their job, and how to improve everything else. Don't try to "fix" security, just improve it by 99%.
-
 - Do not blame the user
 	- Security is about protecting people, we should build technology that people can trust, not constantly blame users. 
 
@@ -465,10 +412,6 @@ Where did these notes come from? See the [README](README.md).
 	- [Block cipher modes of operation](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation).
 	- [AES-GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
 
-- Trusted Platform Module 
-	- (TPM)
-	- Trusted storage for certs and auth data locally on device/host.
-
 - Integrity and authenticity primitives
 	- [Hashing functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) e.g. MD5, Sha-1, BLAKE. Used for identifiers, very useful for fingerprinting malware samples.
 	- [Message Authentication Codes (MACs)](https://en.wikipedia.org/wiki/Message_authentication_code).
@@ -479,35 +422,47 @@ Where did these notes come from? See the [README](README.md).
 	- Entropy buffer draining.
 	- Methods of filling entropy buffer.
 
-- Certificates 
-	- What info do certs contain, how are they signed? 
-	- Look at DigiNotar.
+- Authentication
+	- Certificates 
+		- What info do certs contain, how are they signed? 
+		- Look at DigiNotar.
+	- Trusted Platform Module 
+		- (TPM)
+		- Trusted storage for certs and auth data locally on device/host.
+	- O-auth
+		- Bearer tokens, this can be stolen and used, just like cookies.
+	- Auth Cookies
+		- Client side.
+	- Sessions 
+		- Server side.
+	- Auth systems 
+		- SAMLv2o.
+		- OpenID.
+		- Kerberos. 
+			- Gold & silver tickets.
+			- Mimikatz.
+			- Pass-the-hash.	  
+	- Biometrics
+		- Can't rotate unlike passwords.
+	- Password management
+		- Rotating passwords (and why this is bad). 
+		- Different password lockers. 
+	- U2F / FIDO
+		- Eg. Yubikeys.
+		- Helps prevent successful phishing of credentials.
+	- Compare and contrast multi-factor auth methods.
 
-- O-auth
-	- Bearer tokens, this can be stolen and used, just like cookies.
-
-- Auth Cookies
-	- Client side.
-
-- Sessions 
-	- Server side.
-
-- Auth systems 
-	- SAMLv2o.
-	- OpenID.
-
-- Biometrics
-	- Can't rotate unlike passwords.
-
-- Password management
-	- Rotating passwords (and why this is bad). 
-	- Different password lockers. 
-
-- U2F / FIDO
-	- Eg. Yubikeys.
-	- Helps prevent successful phishing of credentials.
-
-- Compare and contrast multi-factor auth methods
+- Identity
+	- Access Control Lists (ACLs)
+		- Control which authenicated users can access which resources.
+	- Service accounts vs User accounts
+		- Robot accounts or Service accounts are used for automation.
+		- Service accounts should have heavily restricted priviledges.
+		- Understanding how Service accounts are used by attackers is important for understanding Cloud security.  
+	- impersonation
+		- Exported account keys.
+		- ActAs, JWT (JSON Web Token) in Cloud.
+	- Federated identity
 
 
 # Malware & Reversing
