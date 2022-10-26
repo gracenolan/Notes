@@ -1,7 +1,9 @@
 # Security Engineering at Google: My Interview Study Notes
 ## By [nolang](https://twitter.com/__nolang)
 
-I am a security engineer at Google and these are the notes from when I was studying for the interviews. This is my first job in security and a lot of people have asked me how I studied. My notes consist mostly of a list of terms and technologies to learn, plus little tidbits that helped me remember certain details. At the end are interview tips I made for myself and that I find myself saying to others looking to interview.
+I am a security engineer at Google and these are the notes from when I was studying for the interviews. This is my first job in security and a lot of people have asked me how I studied. My notes consist mostly of a list of terms and technologies to learn, plus little tidbits that helped me remember certain details. I've included interview tips and study strategies which are just as important as knowing what topics to study.
+
+I occasionally update the notes to include more topics. There are many, many topics and terms in the list. Think carefully about the role you are applying for and target your study towards that. No one expexts you to be an expert in everything.
 
 **If you are less confident at coding:** 
 Spend more time writing small scripts and studying features of your preferred language. Coding is essential (even if you don't like it or you don't use it much in your current role). I have a section on coding in this list.
@@ -9,7 +11,7 @@ Spend more time writing small scripts and studying features of your preferred la
 **If you are less confident at security topics:** 
 I recommend doing a lot of reading and whenever you come across a term you are unfamiliar with or couldn't easily explain, then add it to the list. 
 
-### 3 Years Later [Update]
+### 5 Years Later [Update]
 I've been at Google for few years now and I have been delighted to learn of how many people have used these notes! Not just to get offers from Google but to get their first jobs in this industry, or to change focus area. I love hearing these stories! 
 
 Since joining I have also learned what keeps most people from getting through the Google Security Egnineering interview process. **The number one reason why a candidate misses out on an offer is because they struggle with the coding questions.**
