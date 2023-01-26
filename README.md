@@ -3,7 +3,7 @@
 
 I am a security engineer at Google and these are the notes from when I was studying for the interviews. This is my first job in security and a lot of people have asked me how I studied. My notes consist mostly of a list of terms and technologies to learn, plus little tidbits that helped me remember certain details. I've included interview tips and study strategies which are just as important as knowing what topics to study.
 
-I occasionally update the notes to include more topics. There are many, many topics and terms in the list. Think carefully about the role you are applying for and target your study towards that. No one expexts you to be an expert in everything.
+I occasionally update the notes to include more topics. There are many, many topics and terms in the list. Think carefully about the role you are applying for and target your study towards that. No one expects you to be an expert in everything.
 
 **If you are less confident at coding:** 
 Spend more time writing small scripts and studying features of your preferred language. Coding is essential (even if you don't like it or you don't use it much in your current role). I have a section on coding in this list.
