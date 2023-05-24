@@ -14,7 +14,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 ### 5 Years Later [Update]
 I've been at Google for few years now and I have been delighted to learn of how many people have used these notes! Not just to get offers from Google but to get their first jobs in this industry, or to change focus area. I love hearing these stories! 
 
-Since joining I have also learned what keeps most people from getting through the Google Security Egnineering interview process. **The number one reason why a candidate misses out on an offer is because they struggle with the coding questions.**
+Since joining I have also learned what keeps most people from getting through the Google Security Engineering interview process. **The number one reason why a candidate misses out on an offer is because they struggle with the coding questions.**
 
 I have two things to say on this:
 1. **Improving coding skills takes a lot of practice.** Be sure to allow yourself enough time for it, including allowing time to be frustrated, to procrastinate, to iterate on your ideas, and to get help from others. Look for ways to make it fun or motivating - there are tedius repetitive tasks everywhere just waiting to be automated. 
