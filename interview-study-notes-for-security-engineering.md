@@ -3,29 +3,34 @@
 
 ### Contents
 - [README](README.md)
-- [Learning Tips](#learning-tips)
-- [Interviewing Tips](#interviewing-tips)
-- [Networking](#networking)
-- [Web Application](#web-application)
-- [Infrastructure (Prod / Cloud) Virtualisation](#infrastructure-prod--cloud-virtualisation)
-- [OS Implementation and Systems](#os-implementation-and-systems)
-- [Mitigations](#mitigations)
-- [Cryptography, Authentication, Identity](#cryptography-authentication-identity)
-- [Malware & Reversing](#malware--reversing)
-- [Exploits](#exploits)
-- [Attack Structure](#attack-structure)
-- [Threat Modeling](#threat-modeling)
-- [Detection](#detection)
-- [Digital Forensics](#digital-forensics)
-- [Incident Management](#incident-management)
-- [Coding & Algorithms](#coding--algorithms)
-- [Security Themed Coding Challenges](#security-themed-coding-challenges)
+- [1.0 General Tips](#10-general-tips)
+	- [1.1 Learning Tips](#11-learning-tips)
+	- [1.2 Interviewing Tips](#12-interviewing-tips)
+- [2.0 Networking](#20-networking)
+	- [2.1 Infrastructure (Prod / Cloud) Virtualisation](#21-infrastructure-prod--cloud-virtualisation)
+- [3.0 Web Application](#30-web-application)
+- [4.0 OS Implementation and Systems](#40-os-implementation-and-systems)
+- [5.0 Coding & Algorithms](#50-coding--algorithms)
+	- [5.1 Security Themed Coding Challenges](#51-security-themed-coding-challenges)
+- [6.0 Offensive Security](#60-offensive-security)
+	- [6.1 Attack Structure](#61-attack-structure)
+	- [6.2 Exploits](#62-exploits)
+	- [6.3 Malware & Reversing](#63-malware--reversing)
+	- [6.4 Digital Forensics](#64-digital-forensics)
+- [7.0 Defensive Security](#70-defensive-security)
+	- [7.1 Threat Modeling](#71-threat-modeling)
+	- [7.2 Detection](#72-detection)
+	- [7.3 Cryptography, Authentication, Identity](#73-cryptography-authentication-identity)
+	- [7.4 Incident Management](#74-incident-management)
+	- [7.5 Mitigations](#75-mitigations)
 
 # Background
 
 Where did these notes come from? See the [README](README.md).
 
-# Learning Tips 
+# 1.0 General Tips
+
+## 1.1 Learning Tips 
 
 - [Learning How To Learn](https://www.coursera.org/learn/learning-how-to-learn) course on Coursera is amazing and very useful. Take the full course, or read this [summary](https://medium.com/learn-love-code/learnings-from-learning-how-to-learn-19d149920dc4) on Medium.
 
@@ -61,7 +66,7 @@ Where did these notes come from? See the [README](README.md).
 	- See interviews for what they are - they are *not* a measure of you being "good enough".
 
 
-# Interviewing Tips 
+## 1.2 Interviewing Tips 
 
 - **Interview questions**
 	- Interview questions are intentionally vague. This is to encourage questions.
@@ -132,10 +137,10 @@ Where did these notes come from? See the [README](README.md).
 	- Practice speaking aloud everything you know about a topic, even details you think might be irrelevant. 
 	- Doooo theeeeemmm yes they can be annoying to organise but it is *worth it*.
 
-### Interviewers are potential friends and they want to help you get the job, they are on your side. Let them help you, ask them questions, recite everything you know on a topic and *say your thought process out loud*.
+> Interviewers are potential friends and they want to help you get the job, they are on your side. Let them help you, ask them questions, recite everything you know on a topic and *say your thought process out loud*.
 
 
-# Networking 
+# 2.0 Networking 
 
 - OSI Model
 	- Application; layer 7 (and basically layers 5 & 6) (includes API, HTTP, etc).
@@ -264,8 +269,25 @@ Where did these notes come from? See the [README](README.md).
 - Root stores
 - CAM table overflow
 
+## 2.1 Infrastructure (Prod / Cloud) Virtualisation 
 
-# Web Application 
+- Hypervisors.
+- Hyperjacking.
+- Containers, VMs, clusters.
+- Escaping techniques.
+	- Network connections from VMs / containers.  
+- Lateral movement and privilege escalation techniques.
+	- Cloud Service Accounts can be used for lateral movement and privilege escalation in Cloud environments.
+	- GCPloit tool for Google Cloud Projects.
+- Site isolation.
+- Side-channel attacks.
+	- Spectre, Meltdown.
+- Beyondcorp 
+	- Trusting the host but not the network.
+- Log4j vuln. 
+
+
+# 3.0 Web Application 
 
 - Same origin policy
 	- Only accept requests from the same origin domain.  
@@ -317,25 +339,7 @@ Where did these notes come from? See the [README](README.md).
 - Malicious redirects.
 
 
-# Infrastructure (Prod / Cloud) Virtualisation 
-
-- Hypervisors.
-- Hyperjacking.
-- Containers, VMs, clusters.
-- Escaping techniques.
-	- Network connections from VMs / containers.  
-- Lateral movement and privilege escalation techniques.
-	- Cloud Service Accounts can be used for lateral movement and privilege escalation in Cloud environments.
-	- GCPloit tool for Google Cloud Projects.
-- Site isolation.
-- Side-channel attacks.
-	- Spectre, Meltdown.
-- Beyondcorp 
-	- Trusting the host but not the network.
-- Log4j vuln. 
-
-
-# OS Implementation and Systems
+# 4.0 OS Implementation and Systems
 
 - Privilege escalation techniques, and prevention.
 - Buffer Overflows.
@@ -367,30 +371,356 @@ Where did these notes come from? See the [README](README.md).
 	- MacSweeper.
 	- Research Mac vulnerabilities.
 
-## Mitigations 
-- Patching 
-- Data Execution Prevention
-- Address space layout randomisation
-	- To make it harder for buffer overruns to execute privileged instructions at known addresses in memory.
-- Principle of least privilege
-	- Eg running Internet Explorer with the Administrator SID disabled in the process token. Reduces the ability of buffer overrun exploits to run as elevated user.
-- Code signing
-	- Requiring kernel mode code to be digitally signed.
-- Compiler security features
-	- Use of compilers that trap buffer overruns.
-- Encryption
-	- Of software and/or firmware components.
-- Mandatory Access Controls
-	- (MACs)
-	- Access Control Lists (ACLs)
-	- Operating systems with Mandatory Access Controls - eg. SELinux.
-- "Insecure by exception"
-	- When to allow people to do certain things for their job, and how to improve everything else. Don't try to "fix" security, just improve it by 99%.
-- Do not blame the user
-	- Security is about protecting people, we should build technology that people can trust, not constantly blame users. 
+# 5.0 Coding & Algorithms
+
+- The basics
+	- Conditions (if, else).
+	- Loops (for loops, while loops).
+ 	- Dictionaries.
+ 	- Slices/lists/arrays.
+ 	- String/array operations (split, contaings, length, regular expressions).
+ 	- Pseudo code (concisely describing your approach to a problem).
+
+- Data structures
+	- Dictionaries / hash tables (array of linked lists, or sometimes a BST).
+	- Arrays.
+	- Stacks.
+	- SQL/tables. 
+	- Bigtables.
+
+- Sorting
+	- Quicksort, merge sort.
+
+- Searching 
+	- Binary vs linear.
+
+- Big O 
+	- For space and time.
+
+- Regular expressions
+	- O(n), but O(n!) when matching.
+	- It's useful to be familiar with basic regex syntax, too.
+
+- Recursion 
+	- And why it is rarely used.
+
+- Python
+	- List comprehensions and generators [ x for x in range() ].
+	- Iterators and generators.
+	- Slicing [start:stop:step].
+	- Regular expressions.
+	- Types (dynamic types), data structures.
+	- Pros and cons of Python vs C, Java, etc.
+	- Understand common functions very well, be comfortable in the language.
 
 
-# Cryptography, Authentication, Identity 
+## 5.1 Security Themed Coding Challenges
+
+These security engineering challenges focus on text parsing and manipulation, basic data structures, and simple logic flows. Give the challenges a go, no need to finish them to completion because all practice helps.
+
+- Cyphers / encryption algorithms 
+	- Implement a cypher which converts text to emoji or something.
+	- Be able to implement basic cyphers.
+
+- Parse arbitrary logs 
+	- Collect logs (of any kind) and write a parser which pulls out specific details (domains, executable names, timestamps etc.)
+
+- Web scrapers 
+	- Write a script to scrape information from a website.
+
+- Port scanners 
+	- Write a port scanner or detect port scanning.
+
+- Botnets
+	- How would you build ssh botnet?
+
+- Password bruteforcer
+	- Generate credentials and store successful logins. 
+
+- Scrape metadata from PDFs
+	- Write a mini forensics tool to collect identifying information from PDF metadata. 
+
+- Recover deleted items
+	- Most software will keep deleted items for ~30 days for recovery. Find out where these are stored. 
+	- Write a script to pull these items from local databases. 
+ 
+- Malware signatures
+	- A program that looks for malware signatures in binaries and code samples.
+	- Look at Yara rules for examples.
+
+# 6.0 Offensive Security
+
+## 6.1 Attack Structure
+
+Practice describing security concepts in the context of an attack. These categories are a rough guide on attack structure for a targeted attack. Non-targeted attacks tend to be a bit more "all-in-one".
+
+- Reconnaissance
+	- OSINT, Google dorking, Shodan.
+- Resource development
+	- Get infrastructure (via compromise or otherwise).
+	- Build malware.
+	- Compromise accounts.
+- Initial access
+	- Phishing.
+	- Hardware placements.
+	- Supply chain compromise.
+	- Exploit public-facing apps.
+- Execution
+	- Shells & interpreters (powershell, python, javascript, etc.).
+	- Scheduled tasks, Windows Management Instrumentation (WMI).
+- Persistence
+	- Additional accounts/creds.
+	- Start-up/log-on/boot scripts, modify launch agents, DLL side-loading, Webshells.
+	- Scheduled tasks.
+- Privilege escalation
+	- Sudo, token/key theft, IAM/group policy modification.
+	- Many persistence exploits are PrivEsc methods too.
+- Defense evasion
+	- Disable detection software & logging.
+	- Revert VM/Cloud instances.
+	- Process hollowing/injection, bootkits.
+- Credential access
+	- Brute force, access password managers, keylogging.
+	- etc/passwd & etc/shadow.
+	- Windows DCSync, Kerberos Gold & Silver tickets.
+	- Clear-text creds in files/pastebin, etc.
+- Discovery
+	- Network scanning.
+	- Find accounts by listing policies.
+	- Find remote systems, software and system info, VM/sandbox.
+- Lateral movement
+	- SSH/RDP/SMB.
+	- Compromise shared content, internal spear phishing.
+	- Pass the hash/ticket, tokens, cookies.
+- Collection
+	- Database dumps.
+	- Audio/video/screen capture, keylogging.
+	- Internal documentation, network shared drives, internal traffic interception.
+- Exfiltration
+	- Removable media/USB, Bluetooth exfil.
+	- C2 channels, DNS exfil, web services like code repos & Cloud backup storage.
+	- Scheduled transfers.
+- Command and control
+	- Web service (dead drop resolvers, one-way/bi-directional traffic), encrypted channels.
+	- Removable media.
+	- Steganography, encoded commands.
+- Impact
+	- Deleted accounts or data, encrypt data (like ransomware).
+	- Defacement.
+	- Denial of service, shutdown/reboot systems.
+
+## 6.2 Exploits
+
+- Three ways to attack - Social, Physical, Network 
+	- **Social**
+		- Ask the person for access, phishing. 
+		- Cognitive biases - look at how these are exploited.
+		- Spear phishing.
+		- Water holing.
+		- Baiting (dropping CDs or USB drivers and hoping people use them).
+		- Tailgating.
+	- **Physical** 
+		- Get hard drive access, will it be encrypted? 
+		- Boot from linux. 
+		- Brute force password.
+		- Keyloggers.
+		- Frequency jamming (bluetooth/wifi).
+		- Covert listening devices.
+		- Hidden cameras.
+		- Disk encryption. 
+		- Trusted Platform Module.
+		- Spying via unintentional radio or electrical signals, sounds, and vibrations (TEMPEST - NSA).
+	- **Network** 
+		- Nmap.
+		- Find CVEs for any services running.
+		- Interception attacks.
+		- Getting unsecured info over the network.
+
+- Exploit Kits and drive-by download attacks
+
+- Remote Control
+	- Remote code execution (RCE) and privilege.
+	- Bind shell (opens port and waits for attacker).
+	- Reverse shell (connects to port on attackers C2 server).
+
+- Spoofing
+	- Email spoofing.
+	- IP address spoofing.
+	- MAC spoofing.
+	- Biometric spoofing.
+	- ARP spoofing.
+
+- Tools
+	- Metasploit.
+	- ExploitDB.
+	- Shodan - Google but for devices/servers connected to the internet.
+	- Google the version number of anything to look for exploits.
+	- Hak5 tools.
+
+## 6.3 Malware & Reversing
+
+- Interesting malware
+	- Conficker.
+	- Morris worm.
+	- Zeus malware.
+	- Stuxnet.
+	- Wannacry.
+	- CookieMiner.
+	- Sunburst.
+
+- Malware features
+	- Various methods of getting remote code execution. 
+	- Domain-flux.
+	- Fast-Flux.
+	- Covert C2 channels.
+	- Evasion techniques (e.g. anti-sandbox).
+	- Process hollowing. 
+	- Mutexes.
+	- Multi-vector and polymorphic attacks.
+	- RAT (remote access trojan) features.
+
+- Decompiling/ reversing 
+	- Obfuscation of code, unique strings (you can use for identifying code).
+	- IdaPro, Ghidra.
+
+- Static / dynamic analysis
+	- Describe the differences.
+	- Virus total. 
+	- Reverse.it. 
+	- Hybrid Analysis.
+
+## 6.4 Digital Forensics
+
+ - Evidence volatility (network vs memory vs disk)
+
+ - Network forensics
+	- DNS logs / passive DNS
+	- Netflow
+	- Sampling rate
+
+ - Disk forensics
+	- Disk imaging
+	- Filesystems (NTFS / ext2/3/4 / AFPS)
+	- Logs (Windows event logs, Unix system logs, application logs)
+	- Data recovery (carving)
+	- Tools
+	- plaso / log2timeline
+	- FTK imager
+	- encase
+
+ - Memory forensics
+	- Memory acquisition (footprint, smear, hiberfiles)
+	- Virtual vs physical memory
+	- Life of an executable
+	- Memory structures
+	- Kernel space vs user space
+	- Tools
+	- Volatility
+	- Google Rapid Response (GRR) / Rekall
+	- WinDbg
+
+  - Mobile forensics
+	- Jailbreaking devices, implications
+	- Differences between mobile and computer forensics
+	- Android vs. iPhone
+
+  - Anti forensics
+	- How does malware try to hide?
+	- Timestomping
+
+  - Chain of custody
+  	- Handover notes 
+
+# 7.0 Defensive Security
+
+## 7.1 Threat Modeling
+
+- Threat Matrix
+- Trust Boundries
+- Security Controls
+- STRIDE framework
+	- **S**poofing
+	- **T**ampering
+	- **R**epudiation
+	- **I**nformation disclosure
+	- **D**enial of service
+	- **E**levation of privilege 
+- [MITRE Att&ck](https://attack.mitre.org/) framework
+- [Excellent talk](https://www.youtube.com/watch?v=vbwb6zqjZ7o) on "Defense Against the Dark Arts" by Lilly Ryan (contains *many* Harry Potter spoilers)
+
+## 7.2 Detection
+
+- IDS
+	- Intrusion Detection System (signature based (eg. snort) or behaviour based).
+	- Snort/Suricata/YARA rule writing
+	- Host-based Intrusion Detection System (eg. OSSEC)
+
+- SIEM
+	- Security Information and Event Management.
+
+- IOC 
+	- Indicator of compromise (often shared amongst orgs/groups).
+	- Specific details (e.g. IP addresses, hashes, domains)
+
+- Things that create signals
+	- Honeypots, snort.
+
+- Things that triage signals
+	- SIEM, eg splunk.
+
+- Things that will alert a human 
+	- Automatic triage of collated logs, machine learning.
+	- Notifications and analyst fatigue.
+	- Systems that make it easy to decide if alert is actual hacks or not.
+
+- Signatures
+	- Host-based signatures
+		- Eg changes to the registry, files created or modified.
+		- Strings in found in malware samples appearing in binaries installed on hosts (/Antivirus).
+	- Network signatures
+		- Eg checking DNS records for attempts to contact C2 (command and control) servers. 
+
+- Anomaly / Behaviour based detection 
+	- IDS learns model of “normal” behaviour, then can detect things that deviate too far from normal - eg unusual urls being accessed, user specific- login times / usual work hours, normal files accessed.  
+	- Can also look for things that a hacker might specifically do (eg, HISTFILE commands, accessing /proc).
+	- If someone is inside the network- If action could be suspicious, increase log verbosity for that user.
+
+- Firewall rules
+	- Brute force (trying to log in with a lot of failures).
+	- Detecting port scanning (could look for TCP SYN packets with no following SYN ACK/ half connections).
+	- Antivirus software notifications.
+	- Large amounts of upload traffic.
+
+- Honey pots
+	- Canary tokens.
+	- Dummy internal service / web server, can check traffic, see what attacker tries.
+
+- Things to know about attackers
+	- Slow attacks are harder to detect.
+	- Attacker can spoof packets that look like other types of attacks, deliberately create a lot of noise.
+	- Attacker can spoof IP address sending packets, but can check TTL of packets and TTL of reverse lookup to find spoofed addresses.
+	- Correlating IPs with physical location (is difficult and inaccurate often).
+
+- Logs to look at
+	- DNS queries to suspicious domains.
+	- HTTP headers could contain wonky information.
+	- Metadata of files (eg. author of file) (more forensics?).
+	- Traffic volume.
+	- Traffic patterns.
+	- Execution logs.
+
+- Detection related tools
+	- Splunk.
+	- Arcsight.
+	- Qradar.
+	- Darktrace.
+	- Tcpdump.
+	- Wireshark.
+	- Zeek.
+
+- A curated list of [awesome threat detection](https://github.com/0x4D31/awesome-threat-detection) resources
+
+## 7.3 Cryptography, Authentication, Identity 
 
 - Encryption vs Encoding vs Hashing vs Obfuscation vs Signing
 	- Be able to explain the differences between these things. 
@@ -464,282 +794,7 @@ Where did these notes come from? See the [README](README.md).
 		- ActAs, JWT (JSON Web Token) in Cloud.
 	- Federated identity
 
-
-# Malware & Reversing
-
-- Interesting malware
-	- Conficker.
-	- Morris worm.
-	- Zeus malware.
-	- Stuxnet.
-	- Wannacry.
-	- CookieMiner.
-	- Sunburst.
-
-- Malware features
-	- Various methods of getting remote code execution. 
-	- Domain-flux.
-	- Fast-Flux.
-	- Covert C2 channels.
-	- Evasion techniques (e.g. anti-sandbox).
-	- Process hollowing. 
-	- Mutexes.
-	- Multi-vector and polymorphic attacks.
-	- RAT (remote access trojan) features.
-
-- Decompiling/ reversing 
-	- Obfuscation of code, unique strings (you can use for identifying code).
-	- IdaPro, Ghidra.
-
-- Static / dynamic analysis
-	- Describe the differences.
-	- Virus total. 
-	- Reverse.it. 
-	- Hybrid Analysis.
-
-
-# Exploits
-
-- Three ways to attack - Social, Physical, Network 
-	- **Social**
-		- Ask the person for access, phishing. 
-		- Cognitive biases - look at how these are exploited.
-		- Spear phishing.
-		- Water holing.
-		- Baiting (dropping CDs or USB drivers and hoping people use them).
-		- Tailgating.
-	- **Physical** 
-		- Get hard drive access, will it be encrypted? 
-		- Boot from linux. 
-		- Brute force password.
-		- Keyloggers.
-		- Frequency jamming (bluetooth/wifi).
-		- Covert listening devices.
-		- Hidden cameras.
-		- Disk encryption. 
-		- Trusted Platform Module.
-		- Spying via unintentional radio or electrical signals, sounds, and vibrations (TEMPEST - NSA).
-	- **Network** 
-		- Nmap.
-		- Find CVEs for any services running.
-		- Interception attacks.
-		- Getting unsecured info over the network.
-
-- Exploit Kits and drive-by download attacks
-
-- Remote Control
-	- Remote code execution (RCE) and privilege.
-	- Bind shell (opens port and waits for attacker).
-	- Reverse shell (connects to port on attackers C2 server).
-
-- Spoofing
-	- Email spoofing.
-	- IP address spoofing.
-	- MAC spoofing.
-	- Biometric spoofing.
-	- ARP spoofing.
-
-- Tools
-	- Metasploit.
-	- ExploitDB.
-	- Shodan - Google but for devices/servers connected to the internet.
-	- Google the version number of anything to look for exploits.
-	- Hak5 tools.
-
-
-# Attack Structure
-
-Practice describing security concepts in the context of an attack. These categories are a rough guide on attack structure for a targeted attack. Non-targeted attacks tend to be a bit more "all-in-one".
-
-- Reconnaissance
-	- OSINT, Google dorking, Shodan.
-- Resource development
-	- Get infrastructure (via compromise or otherwise).
-	- Build malware.
-	- Compromise accounts.
-- Initial access
-	- Phishing.
-	- Hardware placements.
-	- Supply chain compromise.
-	- Exploit public-facing apps.
-- Execution
-	- Shells & interpreters (powershell, python, javascript, etc.).
-	- Scheduled tasks, Windows Management Instrumentation (WMI).
-- Persistence
-	- Additional accounts/creds.
-	- Start-up/log-on/boot scripts, modify launch agents, DLL side-loading, Webshells.
-	- Scheduled tasks.
-- Privilege escalation
-	- Sudo, token/key theft, IAM/group policy modification.
-	- Many persistence exploits are PrivEsc methods too.
-- Defense evasion
-	- Disable detection software & logging.
-	- Revert VM/Cloud instances.
-	- Process hollowing/injection, bootkits.
-- Credential access
-	- Brute force, access password managers, keylogging.
-	- etc/passwd & etc/shadow.
-	- Windows DCSync, Kerberos Gold & Silver tickets.
-	- Clear-text creds in files/pastebin, etc.
-- Discovery
-	- Network scanning.
-	- Find accounts by listing policies.
-	- Find remote systems, software and system info, VM/sandbox.
-- Lateral movement
-	- SSH/RDP/SMB.
-	- Compromise shared content, internal spear phishing.
-	- Pass the hash/ticket, tokens, cookies.
-- Collection
-	- Database dumps.
-	- Audio/video/screen capture, keylogging.
-	- Internal documentation, network shared drives, internal traffic interception.
-- Exfiltration
-	- Removable media/USB, Bluetooth exfil.
-	- C2 channels, DNS exfil, web services like code repos & Cloud backup storage.
-	- Scheduled transfers.
-- Command and control
-	- Web service (dead drop resolvers, one-way/bi-directional traffic), encrypted channels.
-	- Removable media.
-	- Steganography, encoded commands.
-- Impact
-	- Deleted accounts or data, encrypt data (like ransomware).
-	- Defacement.
-	- Denial of service, shutdown/reboot systems.
-
-
-# Threat Modeling
-
-- Threat Matrix
-- Trust Boundries
-- Security Controls
-- STRIDE framework
-	- **S**poofing
-	- **T**ampering
-	- **R**epudiation
-	- **I**nformation disclosure
-	- **D**enial of service
-	- **E**levation of privilege 
-- [MITRE Att&ck](https://attack.mitre.org/) framework
-- [Excellent talk](https://www.youtube.com/watch?v=vbwb6zqjZ7o) on "Defense Against the Dark Arts" by Lilly Ryan (contains *many* Harry Potter spoilers)
-
-
-# Detection
-
-- IDS
-	- Intrusion Detection System (signature based (eg. snort) or behaviour based).
-	- Snort/Suricata/YARA rule writing
-	- Host-based Intrusion Detection System (eg. OSSEC)
-
-- SIEM
-	- Security Information and Event Management.
-
-- IOC 
-	- Indicator of compromise (often shared amongst orgs/groups).
-	- Specific details (e.g. IP addresses, hashes, domains)
-
-- Things that create signals
-	- Honeypots, snort.
-
-- Things that triage signals
-	- SIEM, eg splunk.
-
-- Things that will alert a human 
-	- Automatic triage of collated logs, machine learning.
-	- Notifications and analyst fatigue.
-	- Systems that make it easy to decide if alert is actual hacks or not.
-
-- Signatures
-	- Host-based signatures
-		- Eg changes to the registry, files created or modified.
-		- Strings in found in malware samples appearing in binaries installed on hosts (/Antivirus).
-	- Network signatures
-		- Eg checking DNS records for attempts to contact C2 (command and control) servers. 
-
-- Anomaly / Behaviour based detection 
-	- IDS learns model of “normal” behaviour, then can detect things that deviate too far from normal - eg unusual urls being accessed, user specific- login times / usual work hours, normal files accessed.  
-	- Can also look for things that a hacker might specifically do (eg, HISTFILE commands, accessing /proc).
-	- If someone is inside the network- If action could be suspicious, increase log verbosity for that user.
-
-- Firewall rules
-	- Brute force (trying to log in with a lot of failures).
-	- Detecting port scanning (could look for TCP SYN packets with no following SYN ACK/ half connections).
-	- Antivirus software notifications.
-	- Large amounts of upload traffic.
-
-- Honey pots
-	- Canary tokens.
-	- Dummy internal service / web server, can check traffic, see what attacker tries.
-
-- Things to know about attackers
-	- Slow attacks are harder to detect.
-	- Attacker can spoof packets that look like other types of attacks, deliberately create a lot of noise.
-	- Attacker can spoof IP address sending packets, but can check TTL of packets and TTL of reverse lookup to find spoofed addresses.
-	- Correlating IPs with physical location (is difficult and inaccurate often).
-
-- Logs to look at
-	- DNS queries to suspicious domains.
-	- HTTP headers could contain wonky information.
-	- Metadata of files (eg. author of file) (more forensics?).
-	- Traffic volume.
-	- Traffic patterns.
-	- Execution logs.
-
-- Detection related tools
-	- Splunk.
-	- Arcsight.
-	- Qradar.
-	- Darktrace.
-	- Tcpdump.
-	- Wireshark.
-	- Zeek.
-
-- A curated list of [awesome threat detection](https://github.com/0x4D31/awesome-threat-detection) resources
-
-
-# Digital Forensics
-
- - Evidence volatility (network vs memory vs disk)
-
- - Network forensics
-	- DNS logs / passive DNS
-	- Netflow
-	- Sampling rate
-
- - Disk forensics
-	- Disk imaging
-	- Filesystems (NTFS / ext2/3/4 / AFPS)
-	- Logs (Windows event logs, Unix system logs, application logs)
-	- Data recovery (carving)
-	- Tools
-	- plaso / log2timeline
-	- FTK imager
-	- encase
-
- - Memory forensics
-	- Memory acquisition (footprint, smear, hiberfiles)
-	- Virtual vs physical memory
-	- Life of an executable
-	- Memory structures
-	- Kernel space vs user space
-	- Tools
-	- Volatility
-	- Google Rapid Response (GRR) / Rekall
-	- WinDbg
-
-  - Mobile forensics
-	- Jailbreaking devices, implications
-	- Differences between mobile and computer forensics
-	- Android vs. iPhone
-
-  - Anti forensics
-	- How does malware try to hide?
-	- Timestomping
-
-  - Chain of custody
-  	- Handover notes 
-
-
-# Incident Management
+## 7.4 Incident Management
 
 - Privacy incidents vs information security incidents
 - Know when to talk to legal, users, managers, directors.
@@ -770,82 +825,27 @@ Practice describing security concepts in the context of an attack. These categor
   	- SANS' PICERL (Preparation, Identification, Containement, Eradication, Recovery, Lessons learned)
    	- Google's IMAG (Incident Management At Google)
 
-
-# Coding & Algorithms
-
-- The basics
-	- Conditions (if, else).
-	- Loops (for loops, while loops).
- 	- Dictionaries.
- 	- Slices/lists/arrays.
- 	- String/array operations (split, contaings, length, regular expressions).
- 	- Pseudo code (concisely describing your approach to a problem).
-
-- Data structures
-	- Dictionaries / hash tables (array of linked lists, or sometimes a BST).
-	- Arrays.
-	- Stacks.
-	- SQL/tables. 
-	- Bigtables.
-
-- Sorting
-	- Quicksort, merge sort.
-
-- Searching 
-	- Binary vs linear.
-
-- Big O 
-	- For space and time.
-
-- Regular expressions
-	- O(n), but O(n!) when matching.
-	- It's useful to be familiar with basic regex syntax, too.
-
-- Recursion 
-	- And why it is rarely used.
-
-- Python
-	- List comprehensions and generators [ x for x in range() ].
-	- Iterators and generators.
-	- Slicing [start:stop:step].
-	- Regular expressions.
-	- Types (dynamic types), data structures.
-	- Pros and cons of Python vs C, Java, etc.
-	- Understand common functions very well, be comfortable in the language.
+## 7.5 Mitigations 
+- Patching 
+- Data Execution Prevention
+- Address space layout randomisation
+	- To make it harder for buffer overruns to execute privileged instructions at known addresses in memory.
+- Principle of least privilege
+	- Eg running Internet Explorer with the Administrator SID disabled in the process token. Reduces the ability of buffer overrun exploits to run as elevated user.
+- Code signing
+	- Requiring kernel mode code to be digitally signed.
+- Compiler security features
+	- Use of compilers that trap buffer overruns.
+- Encryption
+	- Of software and/or firmware components.
+- Mandatory Access Controls
+	- (MACs)
+	- Access Control Lists (ACLs)
+	- Operating systems with Mandatory Access Controls - eg. SELinux.
+- "Insecure by exception"
+	- When to allow people to do certain things for their job, and how to improve everything else. Don't try to "fix" security, just improve it by 99%.
+- Do not blame the user
+	- Security is about protecting people, we should build technology that people can trust, not constantly blame users. 
 
 
-## Security Themed Coding Challenges
-
-These security engineering challenges focus on text parsing and manipulation, basic data structures, and simple logic flows. Give the challenges a go, no need to finish them to completion because all practice helps.
-
-- Cyphers / encryption algorithms 
-	- Implement a cypher which converts text to emoji or something.
-	- Be able to implement basic cyphers.
-
-- Parse arbitrary logs 
-	- Collect logs (of any kind) and write a parser which pulls out specific details (domains, executable names, timestamps etc.)
-
-- Web scrapers 
-	- Write a script to scrape information from a website.
-
-- Port scanners 
-	- Write a port scanner or detect port scanning.
-
-- Botnets
-	- How would you build ssh botnet?
-
-- Password bruteforcer
-	- Generate credentials and store successful logins. 
-
-- Scrape metadata from PDFs
-	- Write a mini forensics tool to collect identifying information from PDF metadata. 
-
-- Recover deleted items
-	- Most software will keep deleted items for ~30 days for recovery. Find out where these are stored. 
-	- Write a script to pull these items from local databases. 
- 
-- Malware signatures
-	- A program that looks for malware signatures in binaries and code samples.
-	- Look at Yara rules for examples.
-
-Put your work-in-progress scripts on GitHub and link to them on your resume/CV. Resist the urge to make your scripts perfect or complete before doing this. 
+> Put your work-in-progress scripts on GitHub and link to them on your resume/CV. Resist the urge to make your scripts perfect or complete before doing this. 
