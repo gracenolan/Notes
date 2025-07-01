@@ -289,7 +289,10 @@ Where did these notes come from? See the [README](README.md).
 	- DOM based /client-side XSS.
 	- `<img scr=””>` will often load content from other websites, making a cross-origin HTTP request. 
 - SQLi 
-	- Person-in-the-browser (flash / java applets) (malware).
+	- Blind SQli.
+           - Error based.
+    	   - Time based.
+   	- Union-based SQLi.
 	- Validation / sanitisation of webforms.
 - POST 
 	- Form data. 
