@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCP Handshake Tutorial for Security Engineers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .visualization {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 30px 0;
+            min-height: 400px;
+            position: relative;
+        }
+
+        .node {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1.1em;
+            position: absolute;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .client {
+            background: #4CAF50;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .server {
+            background: #2196F3;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .packet {
+            position: absolute;
+            padding: 10px 20px;
+            background: #ff9800;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .packet-info {
+            font-size: 0.9em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .controls {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .danger-box {
+            background: #ffebee;
+            border-left: 5px solid #f44336;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .packet-details {
+            background: #263238;
+            color: #aed581;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .packet-details .header {
+            color: #4fc3f7;
+            font-weight: bold;
+        }
+
+        .packet-details .value {
+            color: #ffb74d;
+        }
+
+        .exercise {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #667eea;
+        }
+
+        .exercise h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .quiz-option {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .quiz-option.correct {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 5px;
+            border-left: 5px solid #667eea;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+
+        .timeline-item.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        .code-block .keyword {
+            color: #569cd6;
+        }
+
+        .code-block .string {
+            color: #ce9178;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .flag-indicator {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin: 2px;
+        }
+
+        .flag-syn {
+            background: #ffeb3b;
+            color: #333;
+        }
+
+        .flag-ack {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .flag-fin {
+            background: #2196F3;
+            color: white;
+        }
+
+        .flag-rst {
+            background: #f44336;
+            color: white;
+        }
+
+        .interactive-demo {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .seq-ack-builder {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .nav-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .node {
+                width: 80px;
+                height: 80px;
+                font-size: 0.9em;
+            }
+
+            .client {
+                left: 20px;
+            }
+
+            .server {
+                right: 20px;
+            }
+
+            .seq-ack-builder {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TCP Handshake Tutorial</h1>
+        <p>A Practical Guide for Security Engineers</p>
+    </header>
+
+    <div class="container">
+        <!-- Lesson 1: Introduction -->
+        <div class="lesson-card" id="lesson-1">
+            <h2>Lesson 1: Introduction to TCP</h2>
+
+            <p>Welcome! As a security engineer, understanding the TCP handshake is fundamental to:</p>
+            <ul style="margin: 20px 0 20px 40px;">
+                <li>Analyzing network traffic and packet captures</li>
+                <li>Detecting attacks like SYN floods and connection hijacking</li>
+                <li>Understanding firewall rules and IDS/IPS signatures</li>
+                <li>Performing port scanning and network reconnaissance</li>
+                <li>Troubleshooting network security issues</li>
+            </ul>
+
+            <h3>TCP vs UDP: Why TCP Needs a Handshake</h3>
+
+            <div class="info-box">
+                <strong>TCP (Transmission Control Protocol)</strong> is a connection-oriented protocol that guarantees:
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li><strong>Reliability:</strong> All packets are delivered or errors are reported</li>
+                    <li><strong>Ordering:</strong> Packets arrive in the correct sequence</li>
+                    <li><strong>Error checking:</strong> Data integrity is verified</li>
+                    <li><strong>Flow control:</strong> Prevents overwhelming the receiver</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>UDP (User Datagram Protocol)</strong> is connectionless:
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li>No handshake required</li>
+                    <li>No delivery guarantees</li>
+                    <li>Faster but less reliable</li>
+                    <li>Used for DNS, streaming, gaming</li>
+                </ul>
+            </div>
+
+            <h3>Key Concepts</h3>
+            <table>
+                <tr>
+                    <th>Concept</th>
+                    <th>Description</th>
+                    <th>Security Relevance</th>
+                </tr>
+                <tr>
+                    <td>Sequence Numbers</td>
+                    <td>Track byte order and detect duplicates</td>
+                    <td>Attackers can't easily inject packets without knowing sequence numbers</td>
+                </tr>
+                <tr>
+                    <td>Acknowledgments</td>
+                    <td>Confirm receipt of data</td>
+                    <td>Missing ACKs can indicate network issues or attacks</td>
+                </tr>
+                <tr>
+                    <td>TCP Flags</td>
+                    <td>Control connection state (SYN, ACK, FIN, RST, etc.)</td>
+                    <td>Unusual flag combinations indicate scans or attacks</td>
+                </tr>
+                <tr>
+                    <td>Port Numbers</td>
+                    <td>Identify specific services (0-65535)</td>
+                    <td>Port scanning reveals open services</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Lesson 2: The Three-Way Handshake -->
+        <div class="lesson-card" id="lesson-2">
+            <h2>Lesson 2: The Three-Way Handshake</h2>
+
+            <p>The TCP three-way handshake establishes a reliable connection between client and server. It's called "three-way" because it involves three packet exchanges.</p>
+
+            <h3>Interactive Visualization</h3>
+            <div class="visualization" id="handshake-viz">
+                <div class="node client">Client<br>192.168.1.100</div>
+                <div class="node server">Server<br>192.168.1.200</div>
+                <div id="packet-container"></div>
+            </div>
+
+            <div class="controls">
+                <button id="start-handshake">Start Handshake</button>
+                <button id="reset-handshake">Reset</button>
+                <button id="step-by-step">Step-by-Step Mode</button>
+            </div>
+
+            <div class="timeline" id="handshake-timeline">
+                <div class="timeline-item">
+                    <h4>Step 1: SYN (Synchronize)</h4>
+                    <p><strong>Client → Server</strong></p>
+                    <p>The client initiates the connection by sending a SYN packet.</p>
+                    <div class="packet-details">
+<span class="header">TCP Header:</span>
+Source Port:      <span class="value">52341</span>
+Destination Port: <span class="value">443</span> (HTTPS)
+Sequence Number:  <span class="value">1000</span> (random initial sequence number - ISN)
+Ack Number:       <span class="value">0</span>
+Flags:            <span class="value">SYN</span>
+Window Size:      <span class="value">65535</span>
+                    </div>
+                    <div class="info-box">
+                        <strong>Security Note:</strong> The Initial Sequence Number (ISN) should be random and unpredictable. Predictable ISNs enable TCP sequence prediction attacks.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Step 2: SYN-ACK (Synchronize-Acknowledge)</h4>
+                    <p><strong>Server → Client</strong></p>
+                    <p>The server responds with both SYN and ACK flags set.</p>
+                    <div class="packet-details">
+<span class="header">TCP Header:</span>
+Source Port:      <span class="value">443</span>
+Destination Port: <span class="value">52341</span>
+Sequence Number:  <span class="value">5000</span> (server's random ISN)
+Ack Number:       <span class="value">1001</span> (client's SEQ + 1)
+Flags:            <span class="value">SYN, ACK</span>
+Window Size:      <span class="value">65535</span>
+                    </div>
+                    <div class="info-box">
+                        <strong>Key Point:</strong> The ACK number is the client's sequence number + 1. This confirms the server received the SYN packet.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Step 3: ACK (Acknowledge)</h4>
+                    <p><strong>Client → Server</strong></p>
+                    <p>The client acknowledges the server's SYN-ACK, completing the handshake.</p>
+                    <div class="packet-details">
+<span class="header">TCP Header:</span>
+Source Port:      <span class="value">52341</span>
+Destination Port: <span class="value">443</span>
+Sequence Number:  <span class="value">1001</span>
+Ack Number:       <span class="value">5001</span> (server's SEQ + 1)
+Flags:            <span class="value">ACK</span>
+Window Size:      <span class="value">65535</span>
+                    </div>
+                    <div class="success-box">
+                        <strong>Connection Established!</strong> Both sides now have confirmed sequence numbers and can begin transmitting data.
+                    </div>
+                </div>
+            </div>
+
+            <h3>Understanding Sequence and Acknowledgment Numbers</h3>
+            <div class="interactive-demo">
+                <h4>Interactive Sequence Number Calculator</h4>
+                <p>Practice calculating sequence and acknowledgment numbers:</p>
+
+                <div class="seq-ack-builder">
+                    <div>
+                        <label><strong>Client Initial Sequence Number:</strong></label>
+                        <input type="number" id="client-isn" value="1000" />
+                    </div>
+                    <div>
+                        <label><strong>Server Initial Sequence Number:</strong></label>
+                        <input type="number" id="server-isn" value="5000" />
+                    </div>
+                </div>
+
+                <button onclick="calculateHandshake()" style="margin-top: 20px;">Calculate Handshake</button>
+
+                <div id="calc-results" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+
+        <!-- Lesson 3: Security Implications -->
+        <div class="lesson-card" id="lesson-3">
+            <h2>Lesson 3: Security Implications</h2>
+
+            <h3>1. SYN Flood Attack (DoS)</h3>
+            <div class="danger-box">
+                <p><strong>Attack Overview:</strong> An attacker sends a flood of SYN packets without completing the handshake, exhausting server resources.</p>
+            </div>
+
+            <div class="packet-details">
+<span class="comment"># Normal handshake completes in milliseconds</span>
+Client --[SYN]--&gt; Server (Connection created, waiting for ACK)
+Server --[SYN-ACK]--&gt; Client
+Client --[ACK]--&gt; Server (Connection established)
+
+<span class="comment"># SYN Flood attack</span>
+Attacker --[SYN]--&gt; Server (Connection 1 waiting...)
+Attacker --[SYN]--&gt; Server (Connection 2 waiting...)
+Attacker --[SYN]--&gt; Server (Connection 3 waiting...)
+... (thousands of half-open connections)
+<span class="comment"># Attacker never sends final ACK</span>
+<span class="comment"># Server runs out of resources!</span>
+            </div>
+
+            <div class="info-box">
+                <strong>Defenses:</strong>
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li><strong>SYN Cookies:</strong> Server doesn't allocate resources until receiving final ACK</li>
+                    <li><strong>Rate limiting:</strong> Limit SYN packets per IP address</li>
+                    <li><strong>Firewall rules:</strong> Drop suspicious SYN patterns</li>
+                    <li><strong>Increase backlog:</strong> Expand the queue for half-open connections</li>
+                </ul>
+            </div>
+
+            <h3>2. TCP Port Scanning</h3>
+            <p>Security engineers use TCP handshake behavior to identify open ports:</p>
+
+            <table>
+                <tr>
+                    <th>Scan Type</th>
+                    <th>Packets Sent</th>
+                    <th>Open Port Response</th>
+                    <th>Closed Port Response</th>
+                </tr>
+                <tr>
+                    <td>SYN Scan (Stealth)</td>
+                    <td>SYN</td>
+                    <td>SYN-ACK (attacker sends RST)</td>
+                    <td>RST</td>
+                </tr>
+                <tr>
+                    <td>Connect Scan</td>
+                    <td>Full handshake</td>
+                    <td>Connection established</td>
+                    <td>RST or no response</td>
+                </tr>
+                <tr>
+                    <td>FIN Scan</td>
+                    <td>FIN</td>
+                    <td>No response</td>
+                    <td>RST</td>
+                </tr>
+                <tr>
+                    <td>XMAS Scan</td>
+                    <td>FIN, PSH, URG</td>
+                    <td>No response</td>
+                    <td>RST</td>
+                </tr>
+                <tr>
+                    <td>NULL Scan</td>
+                    <td>No flags</td>
+                    <td>No response</td>
+                    <td>RST</td>
+                </tr>
+            </table>
+
+            <div class="code-block">
+<span class="comment"># Example: Nmap SYN scan</span>
+<span class="keyword">sudo</span> nmap -sS -p 1-1000 192.168.1.200
+
+<span class="comment"># Typical output:</span>
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+443/tcp open  https
+            </div>
+
+            <div class="warning-box">
+                <strong>Detection:</strong> IDS/IPS can detect port scans by monitoring:
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li>High volume of SYN packets from single source</li>
+                    <li>Incomplete handshakes (SYN without ACK)</li>
+                    <li>Sequential port access patterns</li>
+                    <li>Unusual flag combinations</li>
+                </ul>
+            </div>
+
+            <h3>3. TCP Session Hijacking</h3>
+            <div class="danger-box">
+                <p><strong>Attack Overview:</strong> Attacker intercepts a TCP connection and injects malicious packets by predicting sequence numbers.</p>
+            </div>
+
+            <div class="packet-details">
+<span class="comment"># Legitimate connection</span>
+Client (SEQ=1000, ACK=5000) --&gt; Server
+Server (SEQ=5000, ACK=1001) --&gt; Client
+
+<span class="comment"># Attacker sniffs traffic and learns sequence numbers</span>
+<span class="comment"># Attacker injects packet with predicted SEQ/ACK</span>
+Attacker (SEQ=1001, ACK=5001) --&gt; Server
+<span class="string">"GET /admin HTTP/1.1"</span>  <span class="comment">&lt;-- Malicious command</span>
+            </div>
+
+            <div class="info-box">
+                <strong>Modern Defenses:</strong>
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li><strong>Encryption:</strong> Use TLS/SSL to encrypt traffic</li>
+                    <li><strong>Random ISN:</strong> RFC 6528 specifies cryptographically random ISN</li>
+                    <li><strong>TCP timestamps:</strong> Additional validation mechanism</li>
+                    <li><strong>Network monitoring:</strong> Detect duplicate sequence numbers</li>
+                </ul>
+            </div>
+
+            <h3>4. Firewall Evasion Techniques</h3>
+            <div class="code-block">
+<span class="comment"># Fragmentation to evade detection</span>
+<span class="keyword">nmap</span> -f -sS 192.168.1.200
+
+<span class="comment"># Decoy scan to hide real source</span>
+<span class="keyword">nmap</span> -D RND:10 -sS 192.168.1.200
+
+<span class="comment"># Slow scan to avoid rate limiting</span>
+<span class="keyword">nmap</span> -T0 -sS 192.168.1.200
+            </div>
+        </div>
+
+        <!-- Lesson 4: Connection Termination -->
+        <div class="lesson-card" id="lesson-4">
+            <h2>Lesson 4: Connection Termination</h2>
+
+            <h3>The Four-Way Handshake (Graceful Termination)</h3>
+            <p>TCP connections are terminated using a four-way handshake with FIN (Finish) flags:</p>
+
+            <div class="packet-details">
+<span class="header">Step 1:</span> Client --[FIN, ACK]--&gt; Server
+  "I'm done sending data"
+  SEQ=1500, ACK=5500
+
+<span class="header">Step 2:</span> Server --[ACK]--&gt; Client
+  "I acknowledge your FIN"
+  SEQ=5500, ACK=1501
+
+<span class="header">Step 3:</span> Server --[FIN, ACK]--&gt; Client
+  "I'm also done sending data"
+  SEQ=5500, ACK=1501
+
+<span class="header">Step 4:</span> Client --[ACK]--&gt; Server
+  "I acknowledge your FIN"
+  SEQ=1501, ACK=5501
+
+<span class="comment"># Connection closed</span>
+            </div>
+
+            <h3>RST (Reset) - Abrupt Termination</h3>
+            <div class="warning-box">
+                <p><strong>RST packets</strong> immediately terminate connections without the normal four-way handshake.</p>
+                <p><strong>Legitimate uses:</strong></p>
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li>Connecting to a closed port</li>
+                    <li>Invalid packet received (wrong SEQ/ACK)</li>
+                    <li>Application crashes</li>
+                    <li>Firewall blocking connection</li>
+                </ul>
+            </div>
+
+            <div class="danger-box">
+                <p><strong>Security Concern:</strong> Attackers can inject RST packets to:
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li>Terminate legitimate connections (DoS)</li>
+                    <li>Disrupt IDS/IPS monitoring</li>
+                    <li>Interfere with network forensics</li>
+                </ul>
+                </p>
+            </div>
+
+            <h3>TCP State Diagram</h3>
+            <div class="code-block">
+                CLOSED
+                  ↓ (client sends SYN)
+                SYN_SENT
+                  ↓ (receives SYN-ACK, sends ACK)
+              ESTABLISHED ← Connection active
+                  ↓ (sends FIN)
+                FIN_WAIT_1
+                  ↓ (receives ACK)
+                FIN_WAIT_2
+                  ↓ (receives FIN)
+                TIME_WAIT
+                  ↓ (timeout)
+                CLOSED
+            </div>
+        </div>
+
+        <!-- Lesson 5: Practical Exercises -->
+        <div class="lesson-card" id="lesson-5">
+            <h2>Lesson 5: Practical Exercises</h2>
+
+            <div class="exercise">
+                <h4>Exercise 1: Identify the Handshake Stage</h4>
+                <p>Given the following packet, what stage of the handshake is this?</p>
+                <div class="packet-details">
+Source: 192.168.1.100:54321
+Dest:   192.168.1.200:443
+SEQ:    8000
+ACK:    3001
+Flags:  SYN, ACK
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'a', false)">
+                    A) Step 1 - Client initiating connection
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'b', true)">
+                    B) Step 2 - Server responding to client
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'c', false)">
+                    C) Step 3 - Client acknowledging server
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(1, 'd', false)">
+                    D) Connection termination
+                </div>
+                <div id="answer-1" style="margin-top: 10px;"></div>
+            </div>
+
+            <div class="exercise">
+                <h4>Exercise 2: Detect SYN Flood</h4>
+                <p>Which pattern indicates a SYN flood attack?</p>
+                <div class="quiz-option" onclick="checkAnswer(2, 'a', false)">
+                    A) High volume of ACK packets from multiple sources
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'b', true)">
+                    B) Many SYN packets from one IP with no corresponding ACKs
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'c', false)">
+                    C) Complete handshakes with immediate RST
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(2, 'd', false)">
+                    D) FIN packets without prior connection
+                </div>
+                <div id="answer-2" style="margin-top: 10px;"></div>
+            </div>
+
+            <div class="exercise">
+                <h4>Exercise 3: Calculate ACK Number</h4>
+                <p>Client sends SYN with SEQ=2000. Server responds with SYN-ACK with SEQ=9000. What should the client's ACK number be in the final handshake packet?</p>
+                <div class="quiz-option" onclick="checkAnswer(3, 'a', false)">
+                    A) 2000
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'b', false)">
+                    B) 2001
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'c', true)">
+                    C) 9001
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(3, 'd', false)">
+                    D) 9000
+                </div>
+                <div id="answer-3" style="margin-top: 10px;"></div>
+            </div>
+
+            <div class="exercise">
+                <h4>Exercise 4: Identify the Scan Type</h4>
+                <p>An IDS detects packets with FIN, PSH, and URG flags set, but no SYN. What type of scan is this?</p>
+                <div class="quiz-option" onclick="checkAnswer(4, 'a', false)">
+                    A) SYN scan
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'b', false)">
+                    B) NULL scan
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'c', true)">
+                    C) XMAS scan
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(4, 'd', false)">
+                    D) Connect scan
+                </div>
+                <div id="answer-4" style="margin-top: 10px;"></div>
+            </div>
+
+            <div class="exercise">
+                <h4>Exercise 5: Security Analysis</h4>
+                <p>Why is a random Initial Sequence Number (ISN) important for security?</p>
+                <div class="quiz-option" onclick="checkAnswer(5, 'a', false)">
+                    A) It makes connections faster
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'b', true)">
+                    B) It prevents attackers from predicting sequence numbers for session hijacking
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'c', false)">
+                    C) It helps with load balancing
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(5, 'd', false)">
+                    D) It's required by the TCP specification but has no security benefit
+                </div>
+                <div id="answer-5" style="margin-top: 10px;"></div>
+            </div>
+
+            <div id="quiz-score" style="margin-top: 30px;"></div>
+        </div>
+
+        <!-- Lesson 6: Real-World Tools -->
+        <div class="lesson-card" id="lesson-6">
+            <h2>Lesson 6: Real-World Analysis Tools</h2>
+
+            <h3>1. Wireshark - Packet Analysis</h3>
+            <div class="info-box">
+                <p><strong>Key Wireshark Filters for TCP Analysis:</strong></p>
+                <div class="code-block">
+<span class="comment"># Display only SYN packets</span>
+tcp.flags.syn == 1 && tcp.flags.ack == 0
+
+<span class="comment"># Display only SYN-ACK packets</span>
+tcp.flags.syn == 1 && tcp.flags.ack == 1
+
+<span class="comment"># Display incomplete handshakes</span>
+tcp.flags.syn == 1 && !tcp.analysis.retransmission
+
+<span class="comment"># Display RST packets</span>
+tcp.flags.reset == 1
+
+<span class="comment"># Display retransmissions (possible issues)</span>
+tcp.analysis.retransmission
+
+<span class="comment"># Focus on specific connection</span>
+tcp.stream eq 0
+                </div>
+            </div>
+
+            <h3>2. tcpdump - Command Line Capture</h3>
+            <div class="code-block">
+<span class="comment"># Capture SYN packets on port 443</span>
+<span class="keyword">sudo</span> tcpdump <span class="string">'tcp[tcpflags] &amp; tcp-syn != 0'</span> port 443
+
+<span class="comment"># Capture handshake for specific host</span>
+<span class="keyword">sudo</span> tcpdump -i eth0 host 192.168.1.200 and tcp
+
+<span class="comment"># Save capture to file</span>
+<span class="keyword">sudo</span> tcpdump -w capture.pcap port 443
+
+<span class="comment"># Read saved capture</span>
+tcpdump -r capture.pcap -n
+            </div>
+
+            <h3>3. Nmap - Port Scanning</h3>
+            <div class="code-block">
+<span class="comment"># SYN scan (requires root)</span>
+<span class="keyword">sudo</span> nmap -sS 192.168.1.200
+
+<span class="comment"># Connect scan (no root required)</span>
+nmap -sT 192.168.1.200
+
+<span class="comment"># OS detection using TCP fingerprinting</span>
+<span class="keyword">sudo</span> nmap -O 192.168.1.200
+
+<span class="comment"># Verbose output showing handshake details</span>
+<span class="keyword">sudo</span> nmap -sS -v -d 192.168.1.200
+            </div>
+
+            <h3>4. Scapy - Packet Crafting (Python)</h3>
+            <div class="code-block">
+<span class="keyword">from</span> scapy.all <span class="keyword">import</span> *
+
+<span class="comment"># Craft a SYN packet</span>
+ip = IP(dst=<span class="string">"192.168.1.200"</span>)
+syn = TCP(sport=12345, dport=443, flags=<span class="string">"S"</span>, seq=1000)
+packet = ip/syn
+
+<span class="comment"># Send and receive response</span>
+response = sr1(packet)
+
+<span class="comment"># Check if SYN-ACK received</span>
+<span class="keyword">if</span> response.haslayer(TCP):
+    <span class="keyword">if</span> response[TCP].flags == <span class="string">"SA"</span>:
+        print(<span class="string">"Port is open!"</span>)
+        <span class="comment"># Send RST to close connection</span>
+        rst = TCP(sport=12345, dport=443, flags=<span class="string">"R"</span>, seq=response.ack)
+        send(ip/rst)
+            </div>
+
+            <h3>5. netstat / ss - Connection Monitoring</h3>
+            <div class="code-block">
+<span class="comment"># Show all TCP connections</span>
+netstat -tan
+
+<span class="comment"># Show connections in SYN_RECV state (half-open)</span>
+netstat -tan | grep SYN_RECV
+
+<span class="comment"># Modern alternative with more details</span>
+ss -tan state syn-recv
+
+<span class="comment"># Monitor for potential SYN flood</span>
+watch <span class="string">'ss -tan state syn-recv | wc -l'</span>
+            </div>
+        </div>
+
+        <!-- Summary and Resources -->
+        <div class="lesson-card" id="summary">
+            <h2>Summary & Next Steps</h2>
+
+            <h3>Key Takeaways</h3>
+            <div class="success-box">
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li><strong>Three-Way Handshake:</strong> SYN → SYN-ACK → ACK establishes TCP connections</li>
+                    <li><strong>Sequence Numbers:</strong> Track bytes and prevent injection attacks</li>
+                    <li><strong>Security Attacks:</strong> SYN floods, port scans, session hijacking exploit handshake behavior</li>
+                    <li><strong>Detection:</strong> Monitor for incomplete handshakes, unusual flags, and patterns</li>
+                    <li><strong>Tools:</strong> Wireshark, tcpdump, nmap, scapy for analysis and testing</li>
+                </ul>
+            </div>
+
+            <h3>Progress Check</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="overall-progress" style="width: 0%">0%</div>
+            </div>
+
+            <h3>Recommended Next Steps</h3>
+            <ol style="margin: 20px 0 20px 40px;">
+                <li><strong>Hands-on Practice:</strong> Set up a lab with Wireshark and capture real TCP handshakes</li>
+                <li><strong>Advanced Topics:</strong> Study TLS handshake, which builds on TCP</li>
+                <li><strong>Attack Labs:</strong> Practice SYN flood mitigation in a controlled environment</li>
+                <li><strong>Protocol Deep Dive:</strong> Read RFC 793 (TCP specification)</li>
+                <li><strong>IDS Rules:</strong> Learn to write Snort/Suricata rules for handshake anomalies</li>
+            </ol>
+
+            <h3>Additional Resources</h3>
+            <ul style="margin: 20px 0 20px 40px;">
+                <li><a href="https://www.rfc-editor.org/rfc/rfc793" target="_blank">RFC 793 - TCP Specification</a></li>
+                <li><a href="https://www.rfc-editor.org/rfc/rfc6528" target="_blank">RFC 6528 - Defending against Sequence Number Attacks</a></li>
+                <li><a href="https://www.wireshark.org/docs/" target="_blank">Wireshark Documentation</a></li>
+                <li><a href="https://nmap.org/book/man.html" target="_blank">Nmap Reference Guide</a></li>
+                <li><a href="https://scapy.readthedocs.io/" target="_blank">Scapy Documentation</a></li>
+            </ul>
+
+            <div class="info-box" style="margin-top: 30px;">
+                <h4>Questions or Feedback?</h4>
+                <p>This tutorial is designed to give security engineers a solid foundation in TCP handshake analysis. Practice with real packet captures and experiment in a lab environment to reinforce these concepts!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animation and interaction logic
+        let currentStep = 0;
+        let stepByStepMode = false;
+        let quizAnswers = {};
+
+        // Start handshake animation
+        document.getElementById('start-handshake').addEventListener('click', function() {
+            if (!stepByStepMode) {
+                animateHandshake();
+            } else {
+                nextStep();
+            }
+        });
+
+        // Reset animation
+        document.getElementById('reset-handshake').addEventListener('click', function() {
+            resetAnimation();
+        });
+
+        // Toggle step-by-step mode
+        document.getElementById('step-by-step').addEventListener('click', function() {
+            stepByStepMode = !stepByStepMode;
+            this.textContent = stepByStepMode ? 'Continuous Mode' : 'Step-by-Step Mode';
+            document.getElementById('start-handshake').textContent = stepByStepMode ? 'Next Step' : 'Start Handshake';
+            resetAnimation();
+        });
+
+        function animateHandshake() {
+            const viz = document.getElementById('handshake-viz');
+            const container = document.getElementById('packet-container');
+            const timeline = document.querySelectorAll('.timeline-item');
+
+            // Clear previous packets
+            container.innerHTML = '';
+
+            // Step 1: SYN
+            setTimeout(() => {
+                const syn = createPacket('SYN', 'SEQ=1000');
+                container.appendChild(syn);
+                animatePacket(syn, 170, viz.offsetHeight / 2 - 20, viz.offsetWidth - 270, viz.offsetHeight / 2 - 20);
+                timeline[0].classList.add('active');
+            }, 500);
+
+            // Step 2: SYN-ACK
+            setTimeout(() => {
+                const synack = createPacket('SYN-ACK', 'SEQ=5000, ACK=1001');
+                container.appendChild(synack);
+                animatePacket(synack, viz.offsetWidth - 270, viz.offsetHeight / 2 + 20, 170, viz.offsetHeight / 2 + 20);
+                timeline[1].classList.add('active');
+            }, 2500);
+
+            // Step 3: ACK
+            setTimeout(() => {
+                const ack = createPacket('ACK', 'SEQ=1001, ACK=5001');
+                container.appendChild(ack);
+                animatePacket(ack, 170, viz.offsetHeight / 2 - 60, viz.offsetWidth - 270, viz.offsetHeight / 2 - 60);
+                timeline[2].classList.add('active');
+            }, 4500);
+
+            updateProgress();
+        }
+
+        function nextStep() {
+            const viz = document.getElementById('handshake-viz');
+            const container = document.getElementById('packet-container');
+            const timeline = document.querySelectorAll('.timeline-item');
+
+            if (currentStep === 0) {
+                container.innerHTML = '';
+                timeline.forEach(t => t.classList.remove('active'));
+            }
+
+            if (currentStep === 0) {
+                const syn = createPacket('SYN', 'SEQ=1000');
+                container.appendChild(syn);
+                animatePacket(syn, 170, viz.offsetHeight / 2 - 20, viz.offsetWidth - 270, viz.offsetHeight / 2 - 20);
+                timeline[0].classList.add('active');
+                currentStep++;
+            } else if (currentStep === 1) {
+                const synack = createPacket('SYN-ACK', 'SEQ=5000, ACK=1001');
+                container.appendChild(synack);
+                animatePacket(synack, viz.offsetWidth - 270, viz.offsetHeight / 2 + 20, 170, viz.offsetHeight / 2 + 20);
+                timeline[1].classList.add('active');
+                currentStep++;
+            } else if (currentStep === 2) {
+                const ack = createPacket('ACK', 'SEQ=1001, ACK=5001');
+                container.appendChild(ack);
+                animatePacket(ack, 170, viz.offsetHeight / 2 - 60, viz.offsetWidth - 270, viz.offsetHeight / 2 - 60);
+                timeline[2].classList.add('active');
+                currentStep++;
+                updateProgress();
+            } else {
+                resetAnimation();
+            }
+        }
+
+        function createPacket(label, info) {
+            const packet = document.createElement('div');
+            packet.className = 'packet';
+            packet.innerHTML = `${label}<div class="packet-info">${info}</div>`;
+            return packet;
+        }
+
+        function animatePacket(packet, startX, startY, endX, endY) {
+            packet.style.left = startX + 'px';
+            packet.style.top = startY + 'px';
+
+            setTimeout(() => {
+                packet.style.opacity = '1';
+                packet.style.left = endX + 'px';
+                packet.style.top = endY + 'px';
+            }, 100);
+        }
+
+        function resetAnimation() {
+            const container = document.getElementById('packet-container');
+            const timeline = document.querySelectorAll('.timeline-item');
+            container.innerHTML = '';
+            timeline.forEach(t => t.classList.remove('active'));
+            currentStep = 0;
+        }
+
+        // Sequence number calculator
+        function calculateHandshake() {
+            const clientISN = parseInt(document.getElementById('client-isn').value);
+            const serverISN = parseInt(document.getElementById('server-isn').value);
+
+            const results = document.getElementById('calc-results');
+            results.innerHTML = `
+                <div class="success-box">
+                    <h4>Handshake Breakdown:</h4>
+                    <div class="packet-details">
+<strong>Step 1 - Client SYN:</strong>
+SEQ: ${clientISN}
+ACK: 0
+Flags: SYN
+
+<strong>Step 2 - Server SYN-ACK:</strong>
+SEQ: ${serverISN}
+ACK: ${clientISN + 1} (Client SEQ + 1)
+Flags: SYN, ACK
+
+<strong>Step 3 - Client ACK:</strong>
+SEQ: ${clientISN + 1}
+ACK: ${serverISN + 1} (Server SEQ + 1)
+Flags: ACK
+                    </div>
+                    <p><strong>Connection Established!</strong> Data transfer can now begin.</p>
+                </div>
+            `;
+        }
+
+        // Quiz functionality
+        function checkAnswer(questionNum, answer, isCorrect) {
+            const answerDiv = document.getElementById(`answer-${questionNum}`);
+            const options = document.querySelectorAll(`#answer-${questionNum}`).parentNode.querySelectorAll('.quiz-option');
+
+            // Store answer
+            quizAnswers[questionNum] = isCorrect;
+
+            if (isCorrect) {
+                answerDiv.innerHTML = '<div class="success-box"><strong>✓ Correct!</strong></div>';
+            } else {
+                answerDiv.innerHTML = '<div class="danger-box"><strong>✗ Incorrect.</strong> Review the lesson and try again.</div>';
+            }
+
+            // Update score
+            updateQuizScore();
+            updateProgress();
+        }
+
+        function updateQuizScore() {
+            const total = 5;
+            const correct = Object.values(quizAnswers).filter(a => a === true).length;
+            const scoreDiv = document.getElementById('quiz-score');
+
+            if (Object.keys(quizAnswers).length > 0) {
+                const percentage = Math.round((correct / total) * 100);
+                scoreDiv.innerHTML = `
+                    <div class="${percentage >= 80 ? 'success-box' : 'warning-box'}">
+                        <h4>Quiz Score: ${correct}/${total} (${percentage}%)</h4>
+                        ${percentage >= 80 ?
+                            '<p>Excellent work! You have a strong understanding of TCP handshakes.</p>' :
+                            '<p>Review the lessons and try again to improve your score.</p>'}
+                    </div>
+                `;
+            }
+        }
+
+        function updateProgress() {
+            const totalSections = 6;
+            let completed = 0;
+
+            // Check if animation was run
+            if (document.querySelectorAll('.timeline-item.active').length === 3) {
+                completed++;
+            }
+
+            // Check quiz completion
+            if (Object.keys(quizAnswers).length === 5) {
+                completed++;
+            }
+
+            // Assume other sections are "read" - in a real app, you'd track scroll position
+            completed += 2;
+
+            const percentage = Math.round((completed / totalSections) * 100);
+            const progressBar = document.getElementById('overall-progress');
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = percentage + '%';
+        }
+
+        // Initialize timeline animations when lesson 2 is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.id === 'lesson-2') {
+                    // Auto-animate on first view (optional)
+                    // animateHandshake();
+                }
+            });
+        });
+
+        observer.observe(document.getElementById('lesson-2'));
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
