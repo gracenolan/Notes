@@ -610,19 +610,38 @@ Practice describing security concepts in the context of an attack. These categor
 	- Denial of service, shutdown/reboot systems.
 
 
-# Threat Modeling
+# Threat Modelling
 
-- Threat Matrix
-- Trust Boundries
-- Security Controls
-- STRIDE framework
-	- **S**poofing
-	- **T**ampering
-	- **R**epudiation
-	- **I**nformation disclosure
-	- **D**enial of service
-	- **E**levation of privilege 
-- [MITRE Att&ck](https://attack.mitre.org/) framework
+- When to do threat modelling?
+	- When features / bugs need to be prioritized and negotiated. 
+	- Design phase of software development lifecycle ("secure by design").
+	- Threat hunting and detection development.
+ 	- Risk assessments.
+- Threat modelling process
+	- System architecture review, create Data Flow Diagram.
+ 	- Identify trust boundaries, trust tiers.
+	- List threats for each part of the system (using STRIDE, MITRE TTPs, etc. to help).
+ 	- Propose mitigations and security controls.
+- Frameworks
+	- [MITRE Att&ck](https://attack.mitre.org/) framework
+	- Threat Matrix
+		- List threats, compare risk & severity.
+	- STRIDE framework
+	  	- **S**poofing _(violates **authenticity**)_
+		- **T**ampering _(violates **integrity**)_
+		- **R**epudiation _(violates **accountability**)_
+		- **I**nformation disclosure _(violates **confidentiality**)_
+		- **D**enial of service _(violates **availablity**)_
+		- **E**levation of privilege _(violates **authorization**)_
+	- DREAD risk assessment 
+		- **D**amage potential
+	 	- **R**eproducibility
+	  	- **E**xploitability
+	  	- **A**ffected Users
+	  	- **D**iscoverability
+	- DREAD obsolete?
+		- Measures are subjective, takes too much effort
+	- PASTA, TRIKE, OCTAVE, MAESTRO... 
 - [Excellent talk](https://www.youtube.com/watch?v=vbwb6zqjZ7o) on "Defense Against the Dark Arts" by Lilly Ryan (contains *many* Harry Potter spoilers)
 
 
@@ -630,15 +649,15 @@ Practice describing security concepts in the context of an attack. These categor
 
 - IDS
 	- Intrusion Detection System (signature based (eg. snort) or behaviour based).
-	- Snort/Suricata/YARA rule writing
-	- Host-based Intrusion Detection System (eg. OSSEC)
+	- Snort/Suricata/YARA rule writing.
+	- Host-based Intrusion Detection System (eg. OSSEC).
 
 - SIEM
 	- Security Information and Event Management.
 
 - IOC 
 	- Indicator of compromise (often shared amongst orgs/groups).
-	- Specific details (e.g. IP addresses, hashes, domains)
+	- Specific details (e.g. IP addresses, hashes, domains).
 
 - Things that create signals
 	- Honeypots, snort.
@@ -654,7 +673,7 @@ Practice describing security concepts in the context of an attack. These categor
 - Signatures
 	- Host-based signatures
 		- Eg changes to the registry, files created or modified.
-		- Strings in found in malware samples appearing in binaries installed on hosts (/Antivirus).
+		- Strings in found in malware samples appearing in binaries installed on hosts. (/Antivirus).
 	- Network signatures
 		- Eg checking DNS records for attempts to contact C2 (command and control) servers. 
 
