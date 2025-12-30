@@ -290,8 +290,8 @@ Where did these notes come from? See the [README](README.md).
 	- `<img scr=””>` will often load content from other websites, making a cross-origin HTTP request. 
 - SQLi 
 	- Blind SQli.
-           - Error based.
-    	   - Time based.
+		- Error based.
+   		- Time based.
    	- Union-based SQLi.
 	- Validation / sanitisation of webforms.
 - POST 
